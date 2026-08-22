@@ -10,9 +10,11 @@
 
 ## 2. Tech Stack
 
-- **Frontend:** {{FRONTEND}} — vd: TypeScript 5, React 18 (Vite), Tailwind 4, shadcn/ui
-- **Backend:** {{BACKEND}} — vd: TypeScript, Node 22, Fastify
-- **Database:** TBD — chon sau khi co BIZ/SPEC (ERD) — vd: PostgreSQL 16 + Prisma (xem 01_TECH_STACK.md)
+- **Stack mode:** LOCKED — agent must not change the stack without explicit user approval
+
+- **Frontend:** {{FRONTEND}} — recommended: TypeScript 5 + React 18 + Vite
+- **Backend:** {{BACKEND}} — recommended: TypeScript + Node.js 22 + Express
+- **Database:** {{DATABASE}} — recommended: PostgreSQL 16 + Prisma
 - **Mobile:** {{MOBILE}} — vd: Dart + Flutter 3.x / hoặc N/A
 - **Auth/Storage:** {{AUTH_STORAGE}}
 - **Test:** {{TEST}}
@@ -25,8 +27,11 @@
 - {{CONSTRAINT_1}}
 - Mỗi lần chỉ làm 1 chức năng nhỏ
 - Không làm UI khi logic chưa pass
+- Không tự ý đổi framework, database, ORM, language hoặc deployment provider khi `Stack mode` là `LOCKED`
+- Nếu cần thêm dependency, giải thích lý do, trade-off, bundle/security impact và chờ user duyệt
 
 ## 4. Liên kết
 
 - Workflow: `docs/00_WORKFLOW.md`
 - Tech chi tiết: `docs/01_TECH_STACK.md`
+- Learning map: `docs/LEARNING_MAP.md`

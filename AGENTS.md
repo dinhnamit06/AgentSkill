@@ -4,6 +4,10 @@
 
 ## 1. Tech Stack - Nguon chan ly: `docs/_meta/PROJECT_CONTEXT.md`
 
+### LOCKED STACK
+
+Neu `PROJECT_CONTEXT.md` ghi `Stack mode: LOCKED`, bat buoc dung dung stack da ghi. Khong tu y doi framework, database, ORM, language hoac deploy provider. Khong dung Fastify, MongoDB, Next.js, Flutter hoac cong nghe thay the trong implementation neu chua duoc user mo khoa. Neu can them dependency, phai neu ly do, trade-off, bundle/security impact va dung cho user duyet.
+
 | Lop | Lua chon mac dinh | Thay the khi can |
 |-----|-------------------|------------------|
 | Frontend | TypeScript 5, React 18 (Vite), Tailwind CSS 4, shadcn/ui | Next.js neu can SSR/SEO |
@@ -80,6 +84,7 @@ Always apply the relevant route automatically; do not wait for the user to name 
 * Error handling: dung Result<T,E> hoac custom Error class, khong throw string.
 * Moi quyet dinh kho hieu phai co link SPEC-xxx hoac ADR-xxx trong header/comment.
 * **Prompt khoi 5 bat buoc co:** `Tho + kien truc su: ≤300/≤50, ten ro, DRY/YAGNI, tach bien, header 3 Biet` — xem `docs/15_HOC_VIBE.md:1`.
+* Moi task phai gan voi `docs/LEARNING_MAP.md`: agent day thuat ngu va ky thuat can cho task, khong dump ly thuyet khong lien quan.
 
 ## 5. Boundaries - Khong bao gio
 

@@ -11,9 +11,11 @@
 
 ## 2. Tech Stack (chọn 1 preset trong STACK_PRESETS/ hoặc tự điền)
 
+- **Stack mode:** LOCKED — không đổi stack nếu chưa được user duyệt
+
 - **Frontend:** TypeScript 5, React 18 (Vite), Tailwind CSS 4, shadcn/ui
-- **Backend:** TypeScript, Node.js 22, Fastify (hoặc Express)
-- **Database:** TBD — chon sau khi co BIZ/SPEC (ERD) — mac dinh: PostgreSQL 16 + Prisma (xem 01_TECH_STACK.md)
+- **Backend:** TypeScript, Node.js 22, Express
+- **Database:** PostgreSQL 16 + Prisma
 - **Mobile (nếu có):** Dart + Flutter 3.x
 - **Auth/Storage:** Supabase Auth + S3-compatible
 - **Test:** Vitest + Testing Library + Supertest
@@ -23,6 +25,7 @@
 
 - Mỗi lần chỉ làm 1 chức năng nhỏ (1 slice = DB+API+test)
 - Không làm UI khi logic chưa pass test
+- Không tự ý đổi framework, database, ORM, language hoặc deployment provider
 - Mọi thay đổi DB phải có migration + review
 - Ngôn ngữ docs: Tiếng Việt (nghiệp vụ/worklog), code/spec: Tiếng Anh
 
