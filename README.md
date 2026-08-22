@@ -1,38 +1,35 @@
 # BeShort
 
-**Production-minded workflows for AI coding agents.**
+**An AI engineering kit for shipping software while learning how it works.**
 
-BeShort is a portable, domain-agnostic Vibe Coding Kit: requirements, specs, prompts, implementation, testing, review, learning, and shipping are connected into one repeatable workflow. The repository contains a URL-shortener example, but the kit is designed for any project.
+BeShort gives AI coding agents a repeatable workflow for any project: clarify, plan, build, verify, review, ship, and learn.
+
+> BeShort is the example application. The workflow and skills are domain-agnostic.
+
+## What makes it different
+
+- Automatic skill routing from natural-language requests.
+- Mandatory phase gates and one active slice at a time.
+- Locked stack support: TypeScript, React, Node.js/Express, PostgreSQL, and Prisma.
+- Learning in context: code, terminology, prompts, architecture, security, and trade-offs.
+- User-controlled decisions for product scope, architecture, data, external access, and release.
 
 ## Lifecycle
 
 ```text
-DEFINE -> PLAN -> BUILD -> VERIFY -> REVIEW -> SHIP
- Idea     Spec    Slice    Test      QA        Git
+DEFINE -> PLAN -> BUILD -> VERIFY -> REVIEW -> SHIP -> LEARN
+ Idea     Spec    Slice    Tests     QA        Release  Understand
 ```
 
-The core rule is simple: one small vertical slice at a time, with evidence before moving on.
+Every task follows:
 
-The agent recommends the next step after each checkpoint and explains trade-offs. The user remains the decision-maker for product scope, architecture, data, external access, and release.
-
-For production completion, see `docs/PRODUCTION_DOD.md`. For learning speed, choose `LEARNER`, `ENGINEER`, or `ADAPTIVE` mode; the quality bar remains unchanged.
-
-## Skills
-
-| Skill | Purpose | Output |
-| --- | --- | --- |
-| `/lay-yeu-cau` | Ask focused business questions | BIZ and SPEC |
-| `/tao-prompt` | Turn an approved spec into an implementation prompt | Six-block PROMPT |
-| `/hoc-tap` | Explain code, architecture, security, and trade-offs | Learning notes |
-| `/tao-ke-hoach` | Break a specification into ordered vertical slices | Task plan |
-| `/tdd` | Drive behavior changes through red-green-refactor | Test evidence |
-| `/review` | Review correctness, security, tests, and scope | Findings |
-| `/security` | Assess trust boundaries and harden risky changes | Risk controls |
-| `/ship` | Prepare verified, attributable changes for release | Release evidence |
-
-Skills live in `.opencode/skills/` and are supported by `AGENTS.md`, project documentation, and templates under `docs/`.
+```text
+DRAFT -> APPROVED -> PLANNED -> IMPLEMENTING -> VERIFIED -> REVIEWED -> DONE
+```
 
 ## Quick start
+
+Run the example:
 
 ```bash
 npm install
@@ -42,8 +39,6 @@ npm run build
 npm test
 npm run dev
 ```
-
-The API runs at `http://localhost:3000`; health check: `GET /health`.
 
 Install into another project:
 
@@ -55,37 +50,78 @@ Install into another project:
 ./install.sh ../MyNewApp MyApp
 ```
 
-After installation, complete `docs/_meta/PROJECT_CONTEXT.md` before implementation.
+Then complete `docs/_meta/PROJECT_CONTEXT.md`.
+
+## Integrate with any IDE or agent
+
+The kit is plain Markdown plus optional scripts. It is not tied to BeShort or one editor.
+
+See `docs/INTEGRATION.md` for the portable file set and verification checklist.
+
+| Tool | Integration |
+| --- | --- |
+| OpenCode | Keep `.opencode/skills/` and `opencode.json` in the project |
+| Claude Code | Copy `AGENTS.md` and skills into the project or Claude skills directory |
+| Codex | Keep `AGENTS.md`; install the skill folders through the Codex skill/plugin mechanism |
+| Cursor | Keep `AGENTS.md`; copy relevant skills into `.cursor/skills/` and rules into `.cursor/rules/` |
+| GitHub Copilot | Keep `AGENTS.md`; include the operating rules from it in `.github/copilot-instructions.md` |
+| Gemini CLI | Keep `AGENTS.md` and expose the skill folders through the project's Gemini skills setup |
+| Windsurf | Keep `AGENTS.md`; map the workflow rules into Windsurf rules and skills |
+| Any other agent | Give the agent `AGENTS.md`, `.opencode/skills/`, and the relevant `docs/` files |
+
+For a new project, copy the kit files, fill `docs/_meta/PROJECT_CONTEXT.md`, and start with a natural-language request. Users do not need to memorize slash commands.
+
+## Automatic skill routing
+
+| User intent | Agent route |
+| --- | --- |
+| Vague idea | Requirements discovery |
+| Approved requirements | Planning and task breakdown |
+| Task ready to implement | Prompt generation and coaching |
+| Logic change | TDD |
+| Input, auth, data, integration | Security |
+| Broken test, build, API, or UI | Evidence-driven debugging |
+| React UI work | Frontend React and browser testing |
+| Ready to merge | Review |
+| Ready to release | CI/CD, deployment, observability, rollback |
+| Completed slice | Learning and spaced repetition |
+
+## Learning modes
+
+| Mode | Best for | Behavior |
+| --- | --- | --- |
+| `LEARNER` | New concepts | Explain, hint, review user attempts |
+| `ENGINEER` | Known concepts | Move faster, keep quality gates |
+| `ADAPTIVE` | Default | Teach unfamiliar or risky concepts; recall known concepts briefly |
 
 ## Quality gates
-
-Every slice should pass:
 
 ```bash
 npm test
 npm run build
 npx tsc --noEmit
 npm run security:audit
+npm run workflow:check
 ```
 
-Do not commit secrets, change the database without a reviewed migration, or build UI before the underlying logic is tested.
+See `docs/PRODUCTION_DOD.md` for the frontend, backend, security, deployment, monitoring, rollback, and learning completion checklist.
 
-## Project structure
+## Repository map
 
-- `AGENTS.md` - agent rules and operating boundaries
-- `docs/` - workflow, business requirements, specs, prompts, tasks, reviews, and worklogs
-- `.opencode/skills/` - reusable agent skills
-- `src/features/links/` - URL-shortener feature
-- `src/lib/` - framework-independent utilities
-- `src/db/` - Prisma database client
-
-## Current status
-
-The first slice includes link persistence, slug generation, API routes, Prisma migration, and tests. UI and click analytics are planned follow-up slices.
+- `AGENTS.md` - always-loaded operating rules and automatic routing
+- `.opencode/skills/` - lifecycle skills
+- `docs/PHASE_GATES.md` - mandatory state machine
+- `docs/LEARNING_MAP.md` - TypeScript/React/Express/PostgreSQL curriculum
+- `docs/KNOWLEDGE_TRACKING.md` - adaptive spaced repetition
+- `docs/PROMPT_PATTERNS.md` - prompt patterns and coaching
+- `docs/GLOSSARY.md` - practical engineering terms
+- `docs/` - workflow, specs, templates, reviews, and worklogs
+- `src/features/links/` - BeShort example feature
+- `scripts/workflow-check.ps1` - phase-state validator
 
 ## Contributing
 
-Keep changes focused, document non-obvious decisions, add tests for behavior changes, and use atomic commits with clear attribution such as `AI PROMPT-001` or `human @name`.
+Keep changes focused and UTF-8 encoded. Add tests for behavior changes, document non-obvious decisions, preserve the locked stack, and use attributable atomic commits.
 
 ## License
 
