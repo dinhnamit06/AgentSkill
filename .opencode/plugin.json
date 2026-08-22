@@ -2,7 +2,7 @@
   "name": "vibe-coding-kit",
   "version": "1.0.0",
   "description": "General AI engineering kit: define, plan, build, verify, review, ship, and learn across projects",
-  "skills": ["./skills/using-vibe-coding", "./skills/lay-yeu-cau", "./skills/tao-ke-hoach", "./skills/tao-prompt", "./skills/tdd", "./skills/security", "./skills/review", "./skills/ship", "./skills/hoc-tap"],
+  "skills": ["./skills/using-vibe-coding", "./skills/lay-yeu-cau", "./skills/tao-ke-hoach", "./skills/tao-prompt", "./skills/prompt-coaching", "./skills/tdd", "./skills/debugging", "./skills/security", "./skills/review", "./skills/ship", "./skills/hoc-tap"],
   "mcp": {
     "vibe-coding": {
       "command": "node",
