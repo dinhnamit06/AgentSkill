@@ -1,9 +1,9 @@
 ---
 name: hoc-tap
-description: Giai thich tinh hoa cua slice vua lam — code line-by-line + tai sao chon kien truc/prompt/bao mat. Go /hoc-tap sau moi TASK Done de hoc sau, khong can doc md.
+description: Teach the user what was built, why the design works, how the prompt and architecture shaped it, and what security and testing trade-offs remain. Use after implementation, debugging, review, or a completed milestone when the user wants durable understanding.
 ---
 
-# Skill: Hoc Tap — 1 lenh hieu het tinh hoa vua lam
+# Skill: Learn From the Work
 
 ## Encoding bat buoc
 
@@ -11,9 +11,9 @@ Moi noi dung tao ra phai la UTF-8; khong de mojibake (`â`, `Ä`, `�`) trong M
 
 ## Khi nao dung
 
-* Vua xong 1 TASK (test xanh, chua merge) — go `/hoc-tap` de hieu tai sao code/kien truc/prompt lai nhu vay
-* Muon on lai: `/hoc-tap TASK-002` hoac `/hoc-tap BIZ-001` — chi ro slice muon hoc
-* New dev: go `/hoc-tap` khong tham so — AI tu tim TASK gan nhat trong `05_TASKS/BOARD.md`
+* Vua xong mot task, bug fix, review, or milestone
+* Muon on lai mot file, decision, pattern, or trade-off
+* Nguoi moi muon hieu thay vi chi copy code
 
 ## Quy tac tra loi ngan
 

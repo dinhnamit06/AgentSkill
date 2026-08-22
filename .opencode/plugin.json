@@ -1,8 +1,8 @@
 ﻿{
   "name": "vibe-coding-kit",
   "version": "1.0.0",
-  "description": "Vibe Coding Kit â€” workflow 5 pha + 2 skills (lay-yeu-cau/tao-prompt) + MCP 1 cho moi IDE",
-  "skills": ["./skills/lay-yeu-cau", "./skills/tao-prompt"],
+  "description": "General AI engineering kit: define, plan, build, verify, review, ship, and learn across projects",
+  "skills": ["./skills/using-vibe-coding", "./skills/lay-yeu-cau", "./skills/tao-ke-hoach", "./skills/tao-prompt", "./skills/tdd", "./skills/security", "./skills/review", "./skills/ship", "./skills/hoc-tap"],
   "mcp": {
     "vibe-coding": {
       "command": "node",
@@ -10,4 +10,3 @@
     }
   }
 }
-

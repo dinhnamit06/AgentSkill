@@ -1,9 +1,9 @@
 ﻿---
 name: tao-prompt
-description: Tao prompt 6 khoi chuan — bien spec thanh prompt thi cong va day tu viet. Day tho code + kien truc su de code ngan gon, de scale. Ten cu: prompt-master.
+description: Convert an approved specification into a concise, executable implementation prompt with context, scope, files, constraints, examples, and verification. Use before delegating a coding task to an AI agent.
 ---
 
-# Skill: Tao Prompt — Tu Spec → Prompt thi cong & Day tho + kien truc su
+# Skill: Implementation Prompting
 
 ## Encoding bat buoc
 
@@ -11,8 +11,8 @@ Moi PROMPT phai duoc tao bang UTF-8; khong de mojibake (`â`, `Ä`, `�`) trong
 
 ## Khi nao dung
 
-* SPEC da Approved (tu lay-yeu-cau)
-* Can sinh PROMPT-xxx.md de giao AI code 1 slice
+* A requirements document or specification is approved
+* Need to delegate a small, testable implementation slice
 * Muon hoc cach tu viet prompt sau nay
 * Can thong tin ngoai → hoi consent truoc (12_BAO_MAT.md:1)
 

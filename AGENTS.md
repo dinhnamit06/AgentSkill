@@ -1,4 +1,4 @@
-# Project: {{PROJECT_NAME}} - Vibe Coding Kit
+# Project: {{PROJECT_NAME}} - General AI Engineering Kit
 
 > Copy file nay sang moi du an. Chi sua khoi `PROJECT_CONTEXT` (tro toi `docs/_meta/PROJECT_CONTEXT.md`). Moi quy tac duoi day la **Level 1 Context** - luon duoc load.
 
@@ -36,25 +36,42 @@ git tag -a v0.1.0 -m "BIZ-xxx Done" && git push origin v0.1.0  # khi xong 1 BIZ
 * Khong de xuat hien mojibake hoac ky tu thay the nhu `â`, `Ä`, `�`; neu phat hien phai sua truoc khi commit.
 * Sau khi tao/sua tai lieu, kiem tra lai bang UTF-8 va khong dung luu file theo encoding mac dinh cua terminal.
 
-## 3. Workflow 5 pha - BAT BUOC
+## 3. Workflow lifecycle - BAT BUOC
 
 ```
-Pha 1: Chon cong nghe (01_TECH_STACK) → User Review
-Pha 2: Nghiep vu (02_BUSINESS) → Skill lay-yeu-cau → Spec (03_SPEC) → User Review
-Pha 3: Skill tao-prompt → Prompt (04_PROMPTS) → Code Logic 1 slice (05_TASKS) → TDD (08_TESTING)
-Pha 4: Review 5-axis (06_REVIEW) → Worklog (07_WORKLOG)
-Pha 5: UI/UX (09_UIUX) — CHI sau khi logic pass 100%
+DEFINE: idea, users, constraints, and success criteria → User Review
+PLAN: approved spec → small ordered tasks and risks → User Review
+BUILD: implementation prompt → one vertical slice → TDD
+VERIFY: tests, build, type check, lint, security, and manual evidence
+REVIEW: correctness, maintainability, security, scope, and learning notes
+SHIP: atomic commit, release notes, rollback awareness, and authorized push
 ```
 
 * Moi pha co Definition of Done trong `docs/00_WORKFLOW.md`.
-* Moi lan chi xu ly **1 chuc nang nho** (1 TASK = 1 vertical slice DB+API+test, chua UI).
+* Moi lan chi xu ly **1 chuc nang nho** (1 TASK = 1 vertical slice phu hop voi project; khong mac dinh DB+API).
+
+### Automatic skill routing
+
+Use `using-vibe-coding` as the default coordinator. The user should describe the outcome naturally; the agent selects and sequences the child skills automatically.
+
+* Ambiguous idea or missing requirements → `/lay-yeu-cau`
+* Approved spec needing decomposition → `/tao-ke-hoach`
+* Approved task needing delegation → `/tao-prompt`
+* Logic or behavior change → `/tdd`
+* Input, auth, data, integration, or network boundary → `/security`
+* Failed test, build, or unexpected behavior → use debugging and recovery reasoning before changing code
+* Change ready for merge → `/review`
+* Review passed and checks green → `/ship`
+* Completed task or user asks why → `/hoc-tap`
+
+Always apply the relevant route automatically; do not wait for the user to name the skill.
 
 ## 4. Code Conventions - Tho code & Kien truc su (ngan gon, de scale)
 
 * **Header 3 Biet bat buoc** cho moi file AI tao: `Ai viet + Tai sao chon tech/cau truc + Link toi SPEC/PROMPT` — xem `docs/14_CODE_READING_GUIDE.md:2`.
 * **Tho code (ngan gon, de hieu):** File ≤300 dong, ham ≤50 dong & 1 viec, ten ro nghia (khong data/tmp/result), khong magic number (dat const SLUG_LEN=6 + WHY), early return it long, DRY 3 lan → tach, khong comment WHAT chi WHY — xem `docs/20_CODE_CRAFTSMANSHIP.md:2`.
-* **Kien truc su (de mo rong, de scale):** Tach bien Route(validate) → Service(BR) → DB(Prisma), chia theo feature src/features/links/ (khong theo loai file), YAGNI khong lam thua, config bang env khong hardcode, do truoc toi uu sau — xem `docs/20_CODE_CRAFTSMANSHIP.md:3`.
-* **Cau truc file chuan:** `src/features/<ten>/` moi feature 1 folder, `src/lib/` ham thuan khong DB, `src/db/` chi Prisma — xem `docs/11_KIEN_TRUC.md:1`.
+* **Kien truc su (de mo rong, de scale):** Tach bien boundary/route → service/use-case → persistence/integration, chia theo feature (khong theo loai file), YAGNI khong lam thua, config bang env khong hardcode, do truoc toi uu sau — xem `docs/20_CODE_CRAFTSMANSHIP.md:3`.
+* **Cau truc file chuan:** `src/features/<ten>/` moi feature 1 folder, `src/lib/` ham thuan, `src/db/` hoac `src/integrations/` chi boundary — xem `docs/11_KIEN_TRUC.md:1`.
 * **Attribution:** Commit ghi ro `AI PROMPT-xxx` hay `human @ten` — de git blame la biet ai, git log la truy duoc prompt.
 * Functional components + hooks (khong class), named exports (khong default), colocate test: Button.tsx → Button.test.tsx.
 * Dung cn() cho classNames, zod cho validation, date-fns cho date.
@@ -106,10 +123,12 @@ export async function createLinkService(input: CreateLinkInput) {
 
 ## 8. Skills
 
-* `/lay-yeu-cau` → lay yeu cau → sinh `02_BUSINESS` + `03_SPEC`.
-* `/tao-prompt` → bien spec thanh `04_PROMPTS` toi uu (6 khoi).
-* `/hoc-tap` → giai thich tinh hoa vua lam (code + kien truc + prompt + nghiep vu + bao mat) — go sau moi TASK Done.
-* Luong: `Idea → lay-yeu-cau → User Review → tao-prompt → Code 1 slice → /hoc-tap → Review → Worklog`.
+* `/lay-yeu-cau` → sinh requirements + spec cho bat ky domain nao.
+* `/tao-ke-hoach` → chia spec thanh task co acceptance criteria va risk.
+* `/tao-prompt` → bien task thanh prompt thi cong 6 khoi.
+* `/tdd`, `/security`, `/review`, `/ship` → verify lifecycle.
+* `/hoc-tap` → giai thich code, kien truc, prompt, nghiep vu, bao mat va trade-off.
+* Luong: `Define → Plan → Build → Verify → Review → Ship → Learn`.
 
 ## 9. Goc nhin 3 vai + Hoc trong hoi thoai (moi cau tra loi phai co)
 

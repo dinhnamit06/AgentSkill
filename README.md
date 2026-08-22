@@ -2,7 +2,7 @@
 
 **Production-minded workflows for AI coding agents.**
 
-BeShort is a portable Vibe Coding Kit: requirements, specs, prompts, implementation, testing, review, and shipping are connected into one repeatable workflow. The repository also contains a working URL-shortener example built with TypeScript, Fastify, Prisma, and PostgreSQL.
+BeShort is a portable, domain-agnostic Vibe Coding Kit: requirements, specs, prompts, implementation, testing, review, learning, and shipping are connected into one repeatable workflow. The repository contains a URL-shortener example, but the kit is designed for any project.
 
 ## Lifecycle
 
@@ -20,6 +20,11 @@ The core rule is simple: one small vertical slice at a time, with evidence befor
 | `/lay-yeu-cau` | Ask focused business questions | BIZ and SPEC |
 | `/tao-prompt` | Turn an approved spec into an implementation prompt | Six-block PROMPT |
 | `/hoc-tap` | Explain code, architecture, security, and trade-offs | Learning notes |
+| `/tao-ke-hoach` | Break a specification into ordered vertical slices | Task plan |
+| `/tdd` | Drive behavior changes through red-green-refactor | Test evidence |
+| `/review` | Review correctness, security, tests, and scope | Findings |
+| `/security` | Assess trust boundaries and harden risky changes | Risk controls |
+| `/ship` | Prepare verified, attributable changes for release | Release evidence |
 
 Skills live in `.opencode/skills/` and are supported by `AGENTS.md`, project documentation, and templates under `docs/`.
 

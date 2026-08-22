@@ -1,9 +1,9 @@
 ﻿---
 name: lay-yeu-cau
-description: Lay yeu cau — hoi sau, type-first, sinh BIZ + SPEC va goi y next step. Day tho code + kien truc su tu dau. Ten cu: mattpocock-requirements.
+description: Clarify an underspecified product, feature, or technical request through focused questions, then produce reusable requirements and an implementation-ready specification. Use before planning or coding when scope, users, behavior, constraints, or acceptance criteria are unclear.
 ---
 
-# Skill: Lay Yeu Cau — Tu y tuong mo ho → Spec chuan (kem tu duy tho + kien truc su)
+# Skill: Requirements Discovery
 
 ## Encoding bat buoc
 
@@ -12,9 +12,9 @@ Moi BIZ va SPEC phai duoc tao bang UTF-8; kiem tra khong co mojibake (`â`, `Ä`
 ## Khi nao dung
 
 * User noi "lam feature X" nhung chua ro
-* Bat dau BIZ moi, can hoi de ra BIZ + SPEC
+* Bat dau mot san pham, feature, task, or change moi
 * Khi spec thieu → khong doan, phai hoi
-* Khi can thong tin ngoai: GitHub link, API key → phai hoi consent truoc (12_BAO_MAT.md:1)
+* Khi can thong tin ngoai: GitHub link, API key -> phai hoi consent truoc
 
 ## Quy tac tra loi ngan
 
