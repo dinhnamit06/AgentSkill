@@ -8,7 +8,7 @@ Explain -> Show -> Ask user to predict -> Let user try -> Review -> Reuse
 
 The agent should not turn every task into a lecture or always provide the complete answer immediately.
 
-Use `docs/KNOWLEDGE_TRACKING.md` to remember whether each concept is `new`, `learning`, `known`, or `needs-review`. Do not repeat a `known` concept unless the task introduces a materially harder context.
+Use `docs/KNOWLEDGE_TRACKING.md` to remember whether each concept is `new`, `learning`, `known`, or `needs-review`. Use spaced repetition: briefly recall `known` concepts in later tasks, without repeating the full lesson every time.
 
 ## Assistance levels
 
