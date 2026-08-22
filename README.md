@@ -13,6 +13,8 @@ DEFINE -> PLAN -> BUILD -> VERIFY -> REVIEW -> SHIP
 
 The core rule is simple: one small vertical slice at a time, with evidence before moving on.
 
+The agent recommends the next step after each checkpoint and explains trade-offs. The user remains the decision-maker for product scope, architecture, data, external access, and release.
+
 ## Skills
 
 | Skill | Purpose | Output |
