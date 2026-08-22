@@ -5,6 +5,10 @@ description: Lay yeu cau — hoi sau, type-first, sinh BIZ + SPEC va goi y next 
 
 # Skill: Lay Yeu Cau — Tu y tuong mo ho → Spec chuan (kem tu duy tho + kien truc su)
 
+## Encoding bat buoc
+
+Moi BIZ va SPEC phai duoc tao bang UTF-8; kiem tra khong co mojibake (`â`, `Ä`, `�`) truoc khi luu va ket luan.
+
 ## Khi nao dung
 
 * User noi "lam feature X" nhung chua ro

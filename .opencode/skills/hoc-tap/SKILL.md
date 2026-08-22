@@ -5,6 +5,10 @@ description: Giai thich tinh hoa cua slice vua lam — code line-by-line + tai s
 
 # Skill: Hoc Tap — 1 lenh hieu het tinh hoa vua lam
 
+## Encoding bat buoc
+
+Moi noi dung tao ra phai la UTF-8; khong de mojibake (`â`, `Ä`, `�`) trong Markdown, code block, ten file hoac vi du.
+
 ## Khi nao dung
 
 * Vua xong 1 TASK (test xanh, chua merge) — go `/hoc-tap` de hieu tai sao code/kien truc/prompt lai nhu vay

@@ -30,6 +30,12 @@ git tag -a v0.1.0 -m "BIZ-xxx Done" && git push origin v0.1.0  # khi xong 1 BIZ
 * Sau moi slice: `npm test` + `npm run build` + `npx tsc --noEmit` + `powershell -File scripts/security-audit.ps1` (S1-S8 PASS moi duoc `git push` — pre-push hook se chan neu ho) — xem `17_GIT_VERSIONING.md:3` + `12_BAO_MAT.md:2`.
 * Khong lap lai cung lenh khi code chua doi.
 
+## 2.1 Encoding - BAT BUOC
+
+* Moi file Markdown, skill, spec, prompt va README phai duoc doc/ghi bang UTF-8.
+* Khong de xuat hien mojibake hoac ky tu thay the nhu `â`, `Ä`, `�`; neu phat hien phai sua truoc khi commit.
+* Sau khi tao/sua tai lieu, kiem tra lai bang UTF-8 va khong dung luu file theo encoding mac dinh cua terminal.
+
 ## 3. Workflow 5 pha - BAT BUOC
 
 ```

@@ -5,6 +5,10 @@ description: Tao prompt 6 khoi chuan — bien spec thanh prompt thi cong va day 
 
 # Skill: Tao Prompt — Tu Spec → Prompt thi cong & Day tho + kien truc su
 
+## Encoding bat buoc
+
+Moi PROMPT phai duoc tao bang UTF-8; khong de mojibake (`â`, `Ä`, `�`) trong noi dung hoac code block.
+
 ## Khi nao dung
 
 * SPEC da Approved (tu lay-yeu-cau)
