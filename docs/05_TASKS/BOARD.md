@@ -14,8 +14,8 @@
 
 | Mã | Tên | Ưu tiên | Trạng thái | Người làm | Ghi chú |
 |----|-----|---------|------------|-----------|---------|
-| TASK-001 | DB schema links + migration | P0 | Todo | — | Bắt đầu từ đây — foundation |
-| TASK-002 | POST /api/links (tạo slug) | P0 | Todo | — | Sau TASK-001 |
+| TASK-001 | DB schema links + migration | P0 | Done | AI + user review | Commit + migration da pass |
+| TASK-002 | POST /api/links (tạo slug) | P0 | Done | AI + user review | 5 tests pass, tag v1.0 |
 | TASK-003 | GET /:slug redirect + click log | P0 | Todo | — | Xong là demo được luồng Guest |
 | TASK-004 | Rate limit + blacklist | P1 | Todo | — | Hardening trước public |
 | TASK-005 | Auth (register/login) | P1 | Todo | — | Sau P0 xong |

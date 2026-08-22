@@ -14,11 +14,14 @@
       }
     }
   },
-  "skills": ["./.opencode/skills/lay-yeu-cau", "./.opencode/skills/tao-prompt", "./.opencode/skills/hoc-tap"],
+  "skills": {
+    "paths": ["./.opencode/skills"]
+  },
   "mcp": {
     "vibe-coding": {
-      "command": "node",
-      "args": ["./mcp-server/dist/index.js"]
+      "type": "local",
+      "command": ["node", "./mcp-server/dist/index.js"],
+      "enabled": true
     }
   },
   "commands": {
