@@ -1,15 +1,15 @@
 # STACK PRESET: Next.js + Supabase (Fullstack nhanh)
 
-> Khi cần SSR/SEO hoặc muốn fullstack trong 1 repo, ít tự quản infra.
+> Khi c?n SSR/SEO ho?c mu?n fullstack trong 1 repo, �t t? qu?n infra.
 
-## Khi nào dùng
-- Marketing site, blog, landing cần SEO
-- Muốn Supabase lo hết Auth + DB + Storage + Realtime
-- Team nhỏ, cần ship <1 tuần
+## Khi n�o d�ng
+- Marketing site, blog, landing c?n SEO
+- Mu?n Supabase lo h?t Auth + DB + Storage + Realtime
+- Team nh?, c?n ship <1 tu?n
 
 ## Stack
 
-| Lớp | Chọn |
+| L?p | Ch?n |
 |-----|------|
 | Frontend+Backend | **Next.js 14 (App Router) + TypeScript** |
 | DB/Auth/Storage | **Supabase (Postgres + Auth + Storage)** |
@@ -18,7 +18,7 @@
 | Test | **Vitest + Playwright** |
 | Deploy | **Vercel** |
 
-## Lệnh
+## L?nh
 
 ```bash
 npx create-next-app@latest --typescript --tailwind --app
@@ -27,8 +27,8 @@ npx supabase init
 
 ## Trade-off
 
-* **Ưu:** Ít config, AI gen Next.js rất tốt, Supabase free tier đủ dùng
-* **Nhược:** Vendor lock-in Supabase, khó custom sâu như tách FE/BE riêng
+* **Uu:** �t config, AI gen Next.js r?t t?t, Supabase free tier d? d�ng
+* **Nhu?c:** Vendor lock-in Supabase, kh� custom s�u nhu t�ch FE/BE ri�ng
 
 ---
-*Nếu sau này scale lớn → tách BE ra Fastify riêng, giữ Next chỉ làm BFF.*
+*N?u sau n�y scale l?n ? t�ch BE ra Fastify ri�ng, gi? Next ch? l�m BFF.*

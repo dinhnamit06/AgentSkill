@@ -1,33 +1,33 @@
-﻿# Project: {{PROJECT_NAME}} â€” Vibe Coding Kit (Claude mirror)
+# Project: {{PROJECT_NAME}} — Vibe Coding Kit (Claude mirror)
 
-> Mirror cá»§a `AGENTS.md`. Claude Code Ä‘á»c file nÃ y. Má»i thay Ä‘á»•i á»Ÿ AGENTS.md hÃ£y Ä‘á»“ng bá»™ sang Ä‘Ã¢y.
+> Mirror của `AGENTS.md`. Claude Code đọc file này. Mọi thay đổi ở AGENTS.md hãy đồng bộ sang đây.
 
 ## Tech Stack
-Xem `docs/_meta/PROJECT_CONTEXT.md` vÃ  `docs/01_TECH_STACK.md`.
-Máº·c Ä‘á»‹nh: TypeScript 5, React 18 (Vite), Tailwind 4, shadcn/ui, Node 22, Express/Fastify, PostgreSQL 16 + Prisma/Drizzle, Dart Flutter 3.x.
+Xem `docs/_meta/PROJECT_CONTEXT.md` và `docs/01_TECH_STACK.md`.
+Mặc định: TypeScript 5, React 18 (Vite), Tailwind 4, shadcn/ui, Node 22, Express/Fastify, PostgreSQL 16 + Prisma/Drizzle, Dart Flutter 3.x.
 
 ## Commands
 - `npm run dev` | `npm test` | `npm run build` | `npm run lint --fix` | `npx tsc --noEmit`
 
-## Workflow 5 pha (báº¯t buá»™c)
-1. Chá»n cÃ´ng nghá»‡ â†’ User Review
-2. Nghiá»‡p vá»¥ â†’ lay-yeu-cau â†’ Spec â†’ User Review
-3. tao-prompt â†’ Prompt â†’ Code 1 slice â†’ TDD
-4. Review 5-axis â†’ Worklog
-5. UI/UX (chá»‰ sau khi logic pass)
+## Workflow 5 pha (bắt buộc)
+1. Chọn công nghệ → User Review
+2. Nghiệp vụ → lay-yeu-cau → Spec → User Review
+3. tao-prompt → Prompt → Code 1 slice → TDD
+4. Review 5-axis → Worklog
+5. UI/UX (chỉ sau khi logic pass)
 
-## Boundaries â€” Consent báº¯t buá»™c
-KhÃ´ng tá»± tiá»‡n láº¥y GitHub/API/thÃ´ng tin cÃ¡ nhÃ¢n â€” pháº£i há»i consent trÆ°á»›c, chá» user cáº¥p má»›i fetch/dÃ¹ng. Xem `docs/12_BAO_MAT.md:1`.
+## Boundaries — Consent bắt buộc
+Không tự tiện lấy GitHub/API/thông tin cá nhân — phải hỏi consent trước, chờ user cấp mới fetch/dùng. Xem `docs/12_BAO_MAT.md:1`.
 
 ## Response Style
-Tráº£ lá»i ngáº¯n, trá»±c tiáº¿p, khÃ´ng láº·p context hoáº·c dump file. Æ¯u tiÃªn: káº¿t luáº­n â†’ viá»‡c lÃ m â†’ verify â†’ bÆ°á»›c tiáº¿p theo. ChÃ­ giáº£i thÃ­ch dÃ i khi user yÃªu cáº§u.
+Trả lời ngắn, trực tiếp, không lặp context hoặc dump file. Ưu tiên: kết luận → việc làm → verify → bước tiếp theo. Chí giải thích dài khi user yêu cầu.
 
 ## Skills
-- `/lay-yeu-cau` â€” láº¥y nhu cáº§u, sinh spec
-- `/tao-prompt` â€” spec â†’ prompt thi cÃ´ng
+- `/lay-yeu-cau` — lấy nhu cầu, sinh spec
+- `/tao-prompt` — spec → prompt thi công
 
-Xem chi tiáº¿t: `AGENTS.md` vÃ  `docs/00_WORKFLOW.md`.
+Xem chi tiết: `AGENTS.md` và `docs/00_WORKFLOW.md`.
 
 ---
-*Portable kit v1.0 â€” CÃ i vÃ o dá»± Ã¡n má»›i: `.\install.ps1`*
+*Portable kit v1.0 — Cài vào dự án mới: `.\install.ps1`*
 

@@ -1,35 +1,35 @@
-# TASK-XXX: [Tên slice] — Template (1 slice = 1 PR = 1 ngày)
+# TASK-XXX: [T�n slice] � Template (1 slice = 1 PR = 1 ng�y)
 
-> Copy thành `TASK-001_TenSlice.md`. Mỗi TASK là 1 vertical slice nhỏ nhất mà vẫn demo được.
-> Nguyên tắc: Dev chỉ làm 1 TASK tại 1 thời điểm, xong mới sang TASK mới.
+> Copy th�nh `TASK-001_TenSlice.md`. M?i TASK l� 1 vertical slice nh? nh?t m� v?n demo du?c.
+> Nguy�n t?c: Dev ch? l�m 1 TASK t?i 1 th?i di?m, xong m?i sang TASK m?i.
 
 ## 1. Meta
 
-- **Mã:** TASK-XXX (map BIZ-XXX / SPEC-XXX / PROMPT-XXX)
-- **Tên:** [VD: POST /api/links — tạo link với slug]
-- **Trạng thái:** Todo | Doing | Review | Done
-- **Người làm:** @dev
-- **Estimate:** 0.5–1 ngày (nếu >1 ngày → tách tiếp)
-- **Ngày tạo / Done:** YYYY-MM-DD / YYYY-MM-DD
+- **M�:** TASK-XXX (map BIZ-XXX / SPEC-XXX / PROMPT-XXX)
+- **T�n:** [VD: POST /api/links � t?o link v?i slug]
+- **Tr?ng th�i:** Todo | Doing | Review | Done
+- **Ngu?i l�m:** @dev
+- **Estimate:** 0.5�1 ng�y (n?u >1 ng�y ? t�ch ti?p)
+- **Ng�y t?o / Done:** YYYY-MM-DD / YYYY-MM-DD
 
-## 2. Mục tiêu (1 câu, đo được)
+## 2. M?c ti�u (1 c�u, do du?c)
 
-[VD: Guest có thể POST 1 URL hợp lệ và nhận link ngắn 6 ký tự, có test xanh]
+[VD: Guest c� th? POST 1 URL h?p l? v� nh?n link ng?n 6 k� t?, c� test xanh]
 
-## 3. Scope — IN / OUT (rất quan trọng để AI không làm lố)
+## 3. Scope � IN / OUT (r?t quan tr?ng d? AI kh�ng l�m l?)
 
-| IN (làm) | OUT (không làm — để TASK khác) |
+| IN (l�m) | OUT (kh�ng l�m � d? TASK kh�c) |
 |----------|-------------------------------|
 | DB migration links table | Auth, ownerId logic |
 | POST /api/links + zod validate | GET redirect, click log |
 | Unit test cho slug + API test cho endpoint | UI form, rate limit |
 
-## 4. Files sẽ chạm
+## 4. Files s? ch?m
 
-- Tạo: `src/schemas/link.ts`, `src/lib/slug.ts`, `prisma/migrations/...`
-- Sửa: `src/routes/links.ts`, `prisma/schema.prisma`
+- T?o: `src/schemas/link.ts`, `src/lib/slug.ts`, `prisma/migrations/...`
+- S?a: `src/routes/links.ts`, `prisma/schema.prisma`
 - Test: `src/routes/links.test.ts`, `src/lib/slug.test.ts`
-- Không chạm: `src/components/*`, `src/routes/auth.ts`
+- Kh�ng ch?m: `src/components/*`, `src/routes/auth.ts`
 
 ## 5. Prompt link
 
@@ -37,39 +37,39 @@
 
 ## 6. Test plan (TDD)
 
-- [ ] RED: Viết test `POST /api/links → 201` và `→ 400` trước khi code
+- [ ] RED: Vi?t test `POST /api/links ? 201` v� `? 400` tru?c khi code
 - [ ] GREEN: Code cho test xanh
-- [ ] REFACTOR: Tách hàm, đặt tên lại, chạy lại test
+- [ ] REFACTOR: T�ch h�m, d?t t�n l?i, ch?y l?i test
 
 ```typescript
-// Ví dụ test RED (phải đỏ trước)
-it("POST /api/links với URL hợp lệ → 201", async () => {
+// V� d? test RED (ph?i d? tru?c)
+it("POST /api/links v?i URL h?p l? ? 201", async () => {
   const res = await app.inject({ method: "POST", url: "/api/links", payload: { url: "https://example.com" } });
   expect(res.statusCode).toBe(201);
   expect(JSON.parse(res.body).slug).toMatch(/^[a-zA-Z0-9]{6}$/);
 });
 ```
 
-## 7. Verify checklist (chạy sau khi code)
+## 7. Verify checklist (ch?y sau khi code)
 
 - [ ] `npm test` xanh
-- [ ] `npx tsc --noEmit` không lỗi
+- [ ] `npx tsc --noEmit` kh�ng l?i
 - [ ] `npm run build` pass
-- [ ] Manual test bằng curl/Postman (ghi lại command)
+- [ ] Manual test b?ng curl/Postman (ghi l?i command)
 
-## 8. Gợi ý bước tiếp theo (AI điền sau khi Done, user quyết)
+## 8. G?i � bu?c ti?p theo (AI di?n sau khi Done, user quy?t)
 
-> Sau khi TASK này Done, AI gợi ý 2-3 hướng đi tiếp, user chọn:
+> Sau khi TASK n�y Done, AI g?i � 2-3 hu?ng di ti?p, user ch?n:
 >
-> **Gợi ý A (khuyên):** TASK-002 — GET /:slug redirect + click log (hoàn thiện luồng P0, demo được end-to-end)
-> **Gợi ý B:** TASK-003 — Rate limit + blacklist (tăng robustness trước khi public)
-> **Gợi ý C:** BIZ-003 Auth — nếu muốn làm Member ngay
+> **G?i � A (khuy�n):** TASK-002 � GET /:slug redirect + click log (ho�n thi?n lu?ng P0, demo du?c end-to-end)
+> **G?i � B:** TASK-003 � Rate limit + blacklist (tang robustness tru?c khi public)
+> **G?i � C:** BIZ-003 Auth � n?u mu?n l�m Member ngay
 >
-> **Bài học cho bạn:** Thứ tự ưu tiên = P0 trước, vertical trước, hardening sau. Sau này không cần file này bạn vẫn tự sắp xếp được.
+> **B�i h?c cho b?n:** Th? t? uu ti�n = P0 tru?c, vertical tru?c, hardening sau. Sau n�y kh�ng c?n file n�y b?n v?n t? s?p x?p du?c.
 
 ## 9. Worklog link
 
-`docs/07_WORKLOG/YYYY-MM-DD.md` — ghi 3 dòng: đã làm, học được, quyết định
+`docs/07_WORKLOG/YYYY-MM-DD.md` � ghi 3 d�ng: d� l�m, h?c du?c, quy?t d?nh
 
 ---
-<!-- EXAMPLE BeShort TASK-001: Điền khối trên cho POST /api/links. Xem BOARD.md:1 để biết vị trí trên kanban -->
+<!-- EXAMPLE BeShort TASK-001: �i?n kh?i tr�n cho POST /api/links. Xem BOARD.md:1 d? bi?t v? tr� tr�n kanban -->

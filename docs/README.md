@@ -27,4 +27,4 @@ Files beginning with `_TEMPLATE` are reusable. `BIZ-001_RutGonURL.md`, `SPEC-001
 
 ## Encoding
 
-All Markdown is UTF-8. Preserve Vietnamese accents and never commit mojibake such as `â`, `Ä`, or `�`.
+All Markdown is UTF-8. Preserve Vietnamese accents and never commit mojibake such as `�`, `�`, or `?`.

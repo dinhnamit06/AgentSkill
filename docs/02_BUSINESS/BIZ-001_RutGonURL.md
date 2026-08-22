@@ -1,91 +1,91 @@
-# BIZ-001: Rút gọn URL (Guest) — Ví dụ mẫu
+# BIZ-001: R�t g?n URL (Guest) � V� d? m?u
 
-> **Đây là BIZ mẫu đã điền sẵn để bạn học.** Copy cách viết này cho BIZ mới.
-> Trạng thái: Approved — đã sẵn sàng sang SPEC-001.
+> **��y l� BIZ m?u d� di?n s?n d? b?n h?c.** Copy c�ch vi?t n�y cho BIZ m?i.
+> Tr?ng th�i: Approved � d� s?n s�ng sang SPEC-001.
 
-## 1. Tổng quan
+## 1. T?ng quan
 
-- **Mã:** BIZ-001
-- **Tên:** Rút gọn URL cho Guest (không cần đăng nhập)
-- **Mức ưu tiên:** P0 — phải có mới demo được
-- **Người yêu cầu:** PM BeShort
-- **Ngày tạo:** 2026-08-22
-- **Trạng thái:** Approved
+- **M�:** BIZ-001
+- **T�n:** R�t g?n URL cho Guest (kh�ng c?n dang nh?p)
+- **M?c uu ti�n:** P0 � ph?i c� m?i demo du?c
+- **Ngu?i y�u c?u:** PM BeShort
+- **Ng�y t?o:** 2026-08-22
+- **Tr?ng th�i:** Approved
 
-## 2. Bối cảnh & Vấn đề
+## 2. B?i c?nh & V?n d?
 
-- **Vấn đề:** Link gốc dài 100-200 ký tự, khó chia sẻ qua chat/QR, không track được ai click.
-- **Mục tiêu:** Guest dán link → nhận link ngắn `beshort.ly/abc123` trong <1s, có thể chia sẻ ngay.
-- **Thành công:** 1000 link/ngày, p95 <300ms, lỗi <1%.
+- **V?n d?:** Link g?c d�i 100-200 k� t?, kh� chia s? qua chat/QR, kh�ng track du?c ai click.
+- **M?c ti�u:** Guest d�n link ? nh?n link ng?n `beshort.ly/abc123` trong <1s, c� th? chia s? ngay.
+- **Th�nh c�ng:** 1000 link/ng�y, p95 <300ms, l?i <1%.
 
 ## 3. Actor & User Story
 
-| Actor | User Story | Ưu tiên |
+| Actor | User Story | Uu ti�n |
 |-------|------------|---------|
-| Guest | Là khách chưa đăng nhập, tôi muốn dán link dài và nhận link ngắn ngay | P0 |
-| Member | Là thành viên, tôi muốn các link tôi tạo được lưu vào “Link của tôi” | P1 (BIZ-003) |
+| Guest | L� kh�ch chua dang nh?p, t�i mu?n d�n link d�i v� nh?n link ng?n ngay | P0 |
+| Member | L� th�nh vi�n, t�i mu?n c�c link t�i t?o du?c luu v�o �Link c?a t�i� | P1 (BIZ-003) |
 
-## 4. Luồng chính
+## 4. Lu?ng ch�nh
 
-1. Guest dán `https://example.com/very/long/url?with=params` vào input
-2. Hệ thống validate URL (có http/https, ≤2048), check blacklist
-3. Tạo slug 6 ký tự `[a-zA-Z0-9]`, đảm bảo unique (retry 3 lần)
-4. Lưu DB: `{slug, originalUrl, ownerId: null, expiresAt: +30 ngày}`
-5. Trả về `{slug: "aB3x9Q", shortUrl: "https://beshort.ly/aB3x9Q"}`
+1. Guest d�n `https://example.com/very/long/url?with=params` v�o input
+2. H? th?ng validate URL (c� http/https, =2048), check blacklist
+3. T?o slug 6 k� t? `[a-zA-Z0-9]`, d?m b?o unique (retry 3 l?n)
+4. Luu DB: `{slug, originalUrl, ownerId: null, expiresAt: +30 ng�y}`
+5. Tr? v? `{slug: "aB3x9Q", shortUrl: "https://beshort.ly/aB3x9Q"}`
 
 ## 5. Business Rules
 
-- BR1: Slug 6 ký tự, charset `a-zA-Z0-9`, unique
-- BR2: URL phải có scheme `http/https`, độ dài ≤2048, không trong blacklist
-- BR3: Guest link hết hạn 30 ngày, Member không hết hạn (BIZ-003)
-- BR4: Không cho rút gọn domain `beshort.ly` (tránh loop)
+- BR1: Slug 6 k� t?, charset `a-zA-Z0-9`, unique
+- BR2: URL ph?i c� scheme `http/https`, d? d�i =2048, kh�ng trong blacklist
+- BR3: Guest link h?t h?n 30 ng�y, Member kh�ng h?t h?n (BIZ-003)
+- BR4: Kh�ng cho r�t g?n domain `beshort.ly` (tr�nh loop)
 
 ## 6. Edge Cases
 
-| Case | Xử lý |
+| Case | X? l� |
 |------|-------|
-| URL thiếu scheme (`example.com`) | 400 `INVALID_URL` — “URL phải bắt đầu bằng http:// hoặc https://” |
+| URL thi?u scheme (`example.com`) | 400 `INVALID_URL` � �URL ph?i b?t d?u b?ng http:// ho?c https://� |
 | URL trong blacklist (`phishing.com`) | 400 `DOMAIN_BLOCKED` |
-| Slug trùng (hiếm) | Retry 3 lần với slug mới, vẫn trùng → 500 `SLUG_FAILED` |
-| Body thiếu `url` | 400 `MISSING_URL` |
-| Rate limit Guest 10 req/phút vượt | 429 + `Retry-After: 60` |
+| Slug tr�ng (hi?m) | Retry 3 l?n v?i slug m?i, v?n tr�ng ? 500 `SLUG_FAILED` |
+| Body thi?u `url` | 400 `MISSING_URL` |
+| Rate limit Guest 10 req/ph�t vu?t | 429 + `Retry-After: 60` |
 
-## 7. Yêu cầu phi chức năng
+## 7. Y�u c?u phi ch?c nang
 
-- Tạo link p95 <300ms, redirect <50ms
-- Rate limit + hash IP (bảo mật)
-- Không lộ URL gốc trong log
+- T?o link p95 <300ms, redirect <50ms
+- Rate limit + hash IP (b?o m?t)
+- Kh�ng l? URL g?c trong log
 
-## 8. Phụ thuộc & Phạm vi
+## 8. Ph? thu?c & Ph?m vi
 
-- **Phụ thuộc:** DB Postgres + Prisma
-- **Trong scope:** Tạo link, validate, slug, lưu DB
-- **Ngoài scope:** Redirect (BIZ-002), Auth (BIZ-003), UI (Pha 5)
+- **Ph? thu?c:** DB Postgres + Prisma
+- **Trong scope:** T?o link, validate, slug, luu DB
+- **Ngo�i scope:** Redirect (BIZ-002), Auth (BIZ-003), UI (Pha 5)
 
 ## 9. Acceptance Criteria
 
 ```gherkin
-AC1: Guest tạo link thành công
-  Given URL hợp lệ "https://example.com"
+AC1: Guest t?o link th�nh c�ng
+  Given URL h?p l? "https://example.com"
   When POST /api/links {url: "https://example.com"}
-  Then 201 {slug: 6 ký tự, shortUrl: "https://beshort.ly/xxx"}
+  Then 201 {slug: 6 k� t?, shortUrl: "https://beshort.ly/xxx"}
 
-AC2: URL xấu
+AC2: URL x?u
   Given URL "not-a-url"
   When POST /api/links
-  Then 400 {error: "URL không hợp lệ", code: "INVALID_URL"}
+  Then 400 {error: "URL kh�ng h?p l?", code: "INVALID_URL"}
 
-AC3: Thiếu url
+AC3: Thi?u url
   Given body {}
   When POST /api/links
   Then 400 {code: "MISSING_URL"}
 ```
 
-## 10. Liên kết
+## 10. Li�n k?t
 
-- Spec: `docs/03_SPEC/SPEC-001_RutGonURL.md` (tạo tiếp)
+- Spec: `docs/03_SPEC/SPEC-001_RutGonURL.md` (t?o ti?p)
 - Prompt: `docs/04_PROMPTS/PROMPT-001_TaoLink.md`
 - Tasks: `TASK-001` (DB) + `TASK-002` (POST API)
 
 ---
-*Học: BIZ này là “đề bài” — SPEC sẽ là “bản vẽ”, PROMPT là “lệnh thi công”.*
+*H?c: BIZ n�y l� �d? b�i� � SPEC s? l� �b?n v?�, PROMPT l� �l?nh thi c�ng�.*
