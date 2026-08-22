@@ -2,6 +2,8 @@
 
 This protocol applies to every project and every feature. BeShort files are examples only.
 
+Use `docs/workflow-state.example.json` as the shape for a task state file and run `npm run workflow:check` when a state file exists.
+
 ## State machine
 
 ```text

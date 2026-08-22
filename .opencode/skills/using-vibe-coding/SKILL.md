@@ -34,6 +34,7 @@ Act as the workflow coordinator. The user describes the outcome in natural langu
 | User asks why/how or slice is complete | `hoc-tap` |
 
 Use `prompt-coaching` whenever an implementation prompt is created, and `debugging` whenever behavior is failing or unclear.
+Use `frontend-react` and `browser-testing` for UI work; use `ci-cd`, `deployment`, `observability`, and `rollback` for release work.
 
 Combine skills when the request crosses boundaries. For example, an authenticated API feature uses planning, prompting, TDD, security, review, ship, and learning; do not wait for the user to invoke each one.
 

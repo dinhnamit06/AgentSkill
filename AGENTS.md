@@ -43,6 +43,8 @@ git tag -a v0.1.0 -m "BIZ-xxx Done" && git push origin v0.1.0  # khi xong 1 BIZ
 ## 3. Workflow lifecycle - BAT BUOC
 
 Doc va tuan thu `docs/PHASE_GATES.md`. Trang thai bat buoc: `DRAFT -> APPROVED -> PLANNED -> IMPLEMENTING -> VERIFIED -> REVIEWED -> DONE`; khong duoc bo qua gate.
+Doc `docs/OPERATING_MODES.md` va tu chon `LEARNER`, `ENGINEER`, hoac `ADAPTIVE` theo muc do cua user; mac dinh dung `ADAPTIVE`. Chat luong test, security, review va release khong bao gio giam theo mode.
+Doc `docs/PRODUCTION_DOD.md` khi chuan bi ket thuc san pham; DONE chi hop le khi cac muc ap dung da co evidence.
 
 ```
 DEFINE: idea, users, constraints, and success criteria → User Review
@@ -85,6 +87,7 @@ Always apply the relevant route automatically; do not wait for the user to name 
 * Moi quyet dinh kho hieu phai co link SPEC-xxx hoac ADR-xxx trong header/comment.
 * **Prompt khoi 5 bat buoc co:** `Tho + kien truc su: ≤300/≤50, ten ro, DRY/YAGNI, tach bien, header 3 Biet` — xem `docs/15_HOC_VIBE.md:1`.
 * Moi task phai gan voi `docs/LEARNING_MAP.md`: agent day thuat ngu va ky thuat can cho task, khong dump ly thuyet khong lien quan.
+* UI flow phai ro truoc; implementation theo thu tu `UX flow -> contract -> logic + test -> UI toi thieu -> E2E -> UI polish`.
 
 ## 5. Boundaries - Khong bao gio
 

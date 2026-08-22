@@ -10,6 +10,7 @@
     "test:watch": "vitest",
     "lint": "eslint src --ext .ts",
     "security:audit": "powershell -ExecutionPolicy Bypass -File scripts/security-audit.ps1",
+    "workflow:check": "powershell -ExecutionPolicy Bypass -File scripts/workflow-check.ps1",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "mcp:build": "npm --prefix mcp-server run build"

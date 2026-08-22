@@ -15,6 +15,8 @@ The core rule is simple: one small vertical slice at a time, with evidence befor
 
 The agent recommends the next step after each checkpoint and explains trade-offs. The user remains the decision-maker for product scope, architecture, data, external access, and release.
 
+For production completion, see `docs/PRODUCTION_DOD.md`. For learning speed, choose `LEARNER`, `ENGINEER`, or `ADAPTIVE` mode; the quality bar remains unchanged.
+
 ## Skills
 
 | Skill | Purpose | Output |
