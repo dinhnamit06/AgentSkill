@@ -38,6 +38,8 @@ git tag -a v0.1.0 -m "BIZ-xxx Done" && git push origin v0.1.0  # khi xong 1 BIZ
 
 ## 3. Workflow lifecycle - BAT BUOC
 
+Doc va tuan thu `docs/PHASE_GATES.md`. Trang thai bat buoc: `DRAFT -> APPROVED -> PLANNED -> IMPLEMENTING -> VERIFIED -> REVIEWED -> DONE`; khong duoc bo qua gate.
+
 ```
 DEFINE: idea, users, constraints, and success criteria → User Review
 PLAN: approved spec → small ordered tasks and risks → User Review

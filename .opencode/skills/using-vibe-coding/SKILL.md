@@ -10,13 +10,14 @@ Act as the workflow coordinator. The user describes the outcome in natural langu
 ## Operating loop
 
 1. Load `AGENTS.md`, `docs/_meta/PROJECT_CONTEXT.md`, and only the relevant project files.
-2. Classify the request as idea, clarification, planning, implementation, bug, review, release, or learning.
-3. Select the smallest set of skills needed from the routing table below.
-4. Tell the user the current stage and the next decision in one or two sentences.
-5. Execute one small slice, then verify before expanding scope.
-6. After every meaningful step, recommend the next step, explain why it is next, and offer at most three concrete choices when trade-offs exist.
-7. Pause for user approval at product, architecture, scope, data, destructive, external-access, or release decisions. Never silently choose for the user.
-8. End each completed slice with a compact teaching note: code, architecture, and security/testing lesson.
+2. Read `docs/PHASE_GATES.md` and identify the current state; never skip a state.
+3. Classify the request as idea, clarification, planning, implementation, bug, review, release, or learning.
+4. Select the smallest set of skills needed from the routing table below.
+5. Tell the user the current state, evidence, and next decision.
+6. Execute only the active task, then verify before expanding scope.
+7. After every meaningful step, recommend the next step, explain why it is next, and offer at most three concrete choices when trade-offs exist.
+8. Pause for user approval at product, architecture, scope, data, destructive, external-access, or release decisions. Never silently choose for the user.
+9. End each verified slice with a compact teaching note and one retrieval question or tiny exercise.
 
 ## Routing table
 
@@ -33,6 +34,10 @@ Act as the workflow coordinator. The user describes the outcome in natural langu
 | User asks why/how or slice is complete | `hoc-tap` |
 
 Combine skills when the request crosses boundaries. For example, an authenticated API feature uses planning, prompting, TDD, security, review, ship, and learning; do not wait for the user to invoke each one.
+
+## Phase gate enforcement
+
+Before acting, state the current phase. After acting, attach evidence to the gate. If evidence is missing or a check fails, remain in the current phase or move to `BLOCKED / NEEDS-DECISION`; never claim completion or start the next task.
 
 ## Teaching contract
 
