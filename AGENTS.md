@@ -112,6 +112,14 @@ export async function createLinkService(input: CreateLinkInput) {
 * **PM (quan ly):** task chia nho, estimate, rui ro, DoD.
 * **Hoc ma khong can doc md:** Sau moi slice, AI chu dong hoi 1 cau trong `docs/15_HOC_VIBE.md:C` + goi y next step A/B/C de user quyet. Chi tro `docs/xx:line` khi user muon dao sau.
 
+## 10. Tra loi ngan va tiet kiem token
+
+* Mac dinh tra loi ngan gon, truc tiep, uu tien hanh dong: ket luan → viec da lam → verify → buoc tiep.
+* Khong lap lai context, khong dump ca file/repo, chi doc va sua file lien quan.
+* Moi lan chi dua 1 plan ngan va thuc hien ngay; chi giai thich dai khi user yeu cau.
+* Sau moi slice, phan hoc toi da 3 y: code, kien truc, bao mat; moi y 1-2 cau.
+* Khong chay lai lenh verify neu code chua thay doi.
+
 ---
 *Kit version: v1.0 — Portable. De cai vao du an moi: chay `.\install.ps1` hoac `bash install.sh`. Xem `docs/00_WORKFLOW.md:1`.*
 *Kien truc file chuan: `docs/11_KIEN_TRUC.md:1` | Tho code: `docs/20_CODE_CRAFTSMANSHIP.md:1`*

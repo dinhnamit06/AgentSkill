@@ -19,6 +19,9 @@ Máº·c Ä‘á»‹nh: TypeScript 5, React 18 (Vite), Tailwind 4, shadcn/ui, N
 ## Boundaries â€” Consent báº¯t buá»™c
 KhÃ´ng tá»± tiá»‡n láº¥y GitHub/API/thÃ´ng tin cÃ¡ nhÃ¢n â€” pháº£i há»i consent trÆ°á»›c, chá» user cáº¥p má»›i fetch/dÃ¹ng. Xem `docs/12_BAO_MAT.md:1`.
 
+## Response Style
+Tráº£ lá»i ngáº¯n, trá»±c tiáº¿p, khÃ´ng láº·p context hoáº·c dump file. Æ¯u tiÃªn: káº¿t luáº­n â†’ viá»‡c lÃ m â†’ verify â†’ bÆ°á»›c tiáº¿p theo. ChÃ­ giáº£i thÃ­ch dÃ i khi user yÃªu cáº§u.
+
 ## Skills
 - `/lay-yeu-cau` â€” láº¥y nhu cáº§u, sinh spec
 - `/tao-prompt` â€” spec â†’ prompt thi cÃ´ng

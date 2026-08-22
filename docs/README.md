@@ -41,5 +41,9 @@
 
 Sau do dien `docs/_meta/PROJECT_CONTEXT.md` va bat dau `/lay-yeu-cau`.
 
+## Solo starter (3 file)
+
+Neu ban lam 1 minh va muon len nhanh, doc `docs/SOLO_STARTER.md:1`.
+
 ---
 *Toi uu: 20 files/ ~1400 dong (truoc 35 files). Lean core <400 dong de AI doc nhanh.*

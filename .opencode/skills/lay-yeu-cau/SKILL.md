@@ -12,6 +12,13 @@ description: Lay yeu cau — hoi sau, type-first, sinh BIZ + SPEC va goi y next 
 * Khi spec thieu → khong doan, phai hoi
 * Khi can thong tin ngoai: GitHub link, API key → phai hoi consent truoc (12_BAO_MAT.md:1)
 
+## Quy tac tra loi ngan
+
+* Hoi tung nhom toi da 3-5 cau; khong hoi lai thong tin da co.
+* Dung format: `Ket luan` → `Can user chon` → `Buoc tiep theo`.
+* Khong dump template vao chat; sinh noi dung vao file can thiet.
+* Neu thieu thong tin, hoi dung diem thieu; khong suy doan.
+
 ## Quy trinh 5 buoc (moi buoc deu day user + chuan tho/kien truc)
 
 ### Buoc 1: Hoi Socratic (5 Whys + edge cases)

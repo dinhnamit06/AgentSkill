@@ -11,6 +11,12 @@ description: Giai thich tinh hoa cua slice vua lam — code line-by-line + tai s
 * Muon on lai: `/hoc-tap TASK-002` hoac `/hoc-tap BIZ-001` — chi ro slice muon hoc
 * New dev: go `/hoc-tap` khong tham so — AI tu tim TASK gan nhat trong `05_TASKS/BOARD.md`
 
+## Quy tac tra loi ngan
+
+* Giai thich 5 tinh hoa, moi muc toi da 2 cau: `Lam gi` + `Tai sao`.
+* Chi giai thich line-by-line khi user chi ro file/dong.
+* Ket thuc bang 1 cau hoi hoc tap, khong viet bai giang dai.
+
 ## Khi KHONG dung
 
 * Chua co TASK nao Done — hay chay `/lay-yeu-cau` truoc

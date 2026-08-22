@@ -12,6 +12,13 @@ description: Tao prompt 6 khoi chuan — bien spec thanh prompt thi cong va day 
 * Muon hoc cach tu viet prompt sau nay
 * Can thong tin ngoai → hoi consent truoc (12_BAO_MAT.md:1)
 
+## Quy tac tra loi ngan
+
+* Tom spec toi da 3 dong truoc khi sinh prompt.
+* Chi liet ke file IN/OUT va rang buoc lien quan slice; khong dump ca repo.
+* Noi dung day du nam trong PROMPT file; chat chi bao cao scope, verify, findings.
+* Khong lap lai toan bo prompt sau khi da ghi file.
+
 ## Quy trinh 4 buoc — Vua lam vua day tho/kien truc su
 
 ### Buoc 1: Doc & Tom spec
