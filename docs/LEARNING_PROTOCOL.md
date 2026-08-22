@@ -8,6 +8,8 @@ Explain -> Show -> Ask user to predict -> Let user try -> Review -> Reuse
 
 The agent should not turn every task into a lecture or always provide the complete answer immediately.
 
+Use `docs/KNOWLEDGE_TRACKING.md` to remember whether each concept is `new`, `learning`, `known`, or `needs-review`. Do not repeat a `known` concept unless the task introduces a materially harder context.
+
 ## Assistance levels
 
 1. Hint: ask a guiding question.
@@ -24,6 +26,8 @@ Teach one or two terms, trace the code path, explain one architectural choice, e
 ## Every two or three slices
 
 Let the user independently write one small part: acceptance criteria, a Zod schema, an Express route, a test, a database query, or the next implementation prompt. Review the attempt before continuing.
+
+Skip this exercise when the user has already demonstrated the concept. Prefer a new exercise when the existing concept appears in a harder context.
 
 ## Independence signal
 

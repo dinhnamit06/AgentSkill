@@ -87,6 +87,7 @@ Always apply the relevant route automatically; do not wait for the user to name 
 * Moi quyet dinh kho hieu phai co link SPEC-xxx hoac ADR-xxx trong header/comment.
 * **Prompt khoi 5 bat buoc co:** `Tho + kien truc su: ≤300/≤50, ten ro, DRY/YAGNI, tach bien, header 3 Biet` — xem `docs/15_HOC_VIBE.md:1`.
 * Moi task phai gan voi `docs/LEARNING_MAP.md`: agent day thuat ngu va ky thuat can cho task, khong dump ly thuyet khong lien quan.
+* Theo doi kien thuc theo `docs/KNOWLEDGE_TRACKING.md`: `new`, `learning`, `known`, `needs-review`; da `known` thi khong giang lai neu khong co do phuc tap moi.
 * UI flow phai ro truoc; implementation theo thu tu `UX flow -> contract -> logic + test -> UI toi thieu -> E2E -> UI polish`.
 
 ## 5. Boundaries - Khong bao gio

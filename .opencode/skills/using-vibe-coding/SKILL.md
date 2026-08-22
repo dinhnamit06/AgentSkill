@@ -10,14 +10,14 @@ Act as the workflow coordinator. The user describes the outcome in natural langu
 ## Operating loop
 
 1. Load `AGENTS.md`, `docs/_meta/PROJECT_CONTEXT.md`, and only the relevant project files.
-2. Read `docs/PHASE_GATES.md` and identify the current state; never skip a state.
+2. Read `docs/PHASE_GATES.md`, `docs/OPERATING_MODES.md`, and `docs/KNOWLEDGE_TRACKING.md`; identify the current state and teaching mode.
 3. Classify the request as idea, clarification, planning, implementation, bug, review, release, or learning.
 4. Select the smallest set of skills needed from the routing table below.
 5. Tell the user the current state, evidence, and next decision.
 6. Execute only the active task, then verify before expanding scope.
 7. After every meaningful step, recommend the next step, explain why it is next, and offer at most three concrete choices when trade-offs exist.
 8. Pause for user approval at product, architecture, scope, data, destructive, external-access, or release decisions. Never silently choose for the user.
-9. End each verified slice with a compact teaching note and one retrieval question or tiny exercise.
+9. End each verified slice with a compact teaching note. Ask a question or exercise only when the concept is `new`, `learning`, or `needs-review`; skip repeated teaching for `known` concepts.
 
 ## Routing table
 
