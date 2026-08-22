@@ -1,0 +1,23 @@
+// prisma/schema.prisma — Ban ve DB (21_FILE_STRUCTURE.md:1)
+// Provider sqlite cho demo chay ngay khong can Docker; doi sang postgresql khi deploy (docker-compose.yml)
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Feature: links (BIZ-001, SPEC-001)
+model Link {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  originalUrl String
+  ownerId     String?
+  clicks      Int      @default(0)
+  createdAt   DateTime @default(now())
+  expiresAt   DateTime?
+  @@index([slug])
+  @@index([ownerId])
+}

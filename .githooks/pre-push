@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+# .githooks/pre-push — chan push neu security audit fail
+# Cai: git config core.hooksPath .githooks  (installer tu lam)
+# Chay: scripts/security-audit.ps1 (Windows) hoac .sh (macOS/Linux)
+
+echo "→ pre-push: chay security audit S1-S8 ..."
+
+if command -v powershell >/dev/null 2>&1; then
+  powershell -NoProfile -ExecutionPolicy Bypass -File scripts/security-audit.ps1
+else
+  bash scripts/security-audit.sh
+fi
+
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo "✗ pre-push blocked: audit FAIL — sua theo docs/12_HANDOVER_CHECKLIST.md:2 roi push lai"
+  echo "  Bypass (khong khuyen): git push --no-verify"
+  exit 1
+fi
+echo "✓ pre-push audit PASS"
+exit 0

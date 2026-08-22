@@ -1,0 +1,13 @@
+﻿{
+  "name": "vibe-coding-kit",
+  "version": "1.0.0",
+  "description": "Vibe Coding Kit â€” workflow 5 pha + 2 skills (lay-yeu-cau/tao-prompt) + MCP 1 cho moi IDE",
+  "skills": ["./skills/lay-yeu-cau", "./skills/tao-prompt"],
+  "mcp": {
+    "vibe-coding": {
+      "command": "node",
+      "args": ["../mcp-server/dist/index.js"]
+    }
+  }
+}
+

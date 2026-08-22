@@ -1,0 +1,23 @@
+# docker-compose.yml — 1 lenh co Postgres cho BeShort (khong can cai tay)
+# Dung: docker compose up -d  (can Docker Desktop)
+# Sau do: DATABASE_URL="postgresql://beshort:beshort@localhost:5432/beshort" npx prisma migrate dev
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: beshort-postgres
+    environment:
+      POSTGRES_USER: beshort
+      POSTGRES_PASSWORD: beshort
+      POSTGRES_DB: beshort
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U beshort"]
+      interval: 5s
+      retries: 5
+
+volumes:
+  pgdata:
