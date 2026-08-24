@@ -17,7 +17,7 @@ Act as the workflow coordinator. The user describes the outcome in natural langu
 6. Execute only the active task, then verify before expanding scope.
 7. After every meaningful step, recommend the next step, explain why it is next, and offer at most three concrete choices when trade-offs exist.
 8. Pause for user approval at product, architecture, scope, data, destructive, external-access, or release decisions. Never silently choose for the user.
-9. End each verified slice with a compact teaching note. Ask a question or exercise for `new`, `learning`, or `needs-review` concepts; briefly revisit `known` concepts using spaced repetition.
+9. End every verified task/slice with a compact `hoc-tap` teaching note automatically. Ask a question or exercise for `new`, `learning`, or `needs-review` concepts; briefly revisit `known` concepts using spaced repetition.
 
 ## Routing table
 
@@ -31,7 +31,7 @@ Act as the workflow coordinator. The user describes the outcome in natural langu
 | Test/build failure or unexpected behavior | Diagnose, reproduce, localize, reduce, fix, and add a regression test |
 | Change ready to merge | `review` |
 | Review and verification passed | `ship` |
-| User asks why/how or slice is complete | `hoc-tap` |
+| User asks why/how or any task/slice is verified complete | `hoc-tap` (automatic) |
 
 Use `prompt-coaching` whenever an implementation prompt is created, and `debugging` whenever behavior is failing or unclear.
 Use `frontend-react` and `browser-testing` for UI work; use `ci-cd`, `deployment`, `observability`, and `rollback` for release work.

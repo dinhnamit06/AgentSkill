@@ -5,6 +5,8 @@ description: Teach the user what was built, why the design works, how the prompt
 
 # Skill: Learn From the Work
 
+Use automatically after every verified task or slice; do not wait for `/hoc-tap`. Default to `ADAPTIVE`: explain unfamiliar concepts simply, keep known concepts brief, and increase depth only when requested.
+
 ## Encoding bat buoc
 
 Moi noi dung tao ra phai la UTF-8; khong de mojibake (`�`, `�`, `?`) trong Markdown, code block, ten file hoac vi du.
