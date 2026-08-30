@@ -1,44 +1,44 @@
-# BACKLOG — Danh sách chức năng (chia nhỏ để vibe code)
+﻿# BACKLOG â€” Danh sÃ¡ch chá»©c nÄƒng (chia nhá» Ä‘á»ƒ vibe code)
 
-> Mỗi dòng là 1 BIZ. Mỗi BIZ sẽ tách thành nhiều TASK (1 TASK = 1 slice). PM sắp xếp ưu tiên, Dev chỉ làm theo thứ tự.
-> Nguyên tắc: P0 trước, mỗi lần chỉ làm 1 BIZ, mỗi BIZ chỉ làm 1 TASK tại 1 thời điểm.
+> Má»—i dÃ²ng lÃ  1 BIZ. Má»—i BIZ sáº½ tÃ¡ch thÃ nh nhiá»u TASK (1 TASK = 1 slice). PM sáº¯p xáº¿p Æ°u tiÃªn, Dev chá»‰ lÃ m theo thá»© tá»±.
+> NguyÃªn táº¯c: P0 trÆ°á»›c, má»—i láº§n chá»‰ lÃ m 1 BIZ, má»—i BIZ chá»‰ lÃ m 1 TASK táº¡i 1 thá»i Ä‘iá»ƒm.
 
-## BeShort — Backlog gợi ý (đã chia theo vertical slice)
+## BeShort â€” Backlog gá»£i Ã½ (Ä‘Ã£ chia theo vertical slice)
 
-| # | Mã | Chức năng | Mô tả 1 câu | Ưu tiên | Trạng thái | Spec |
+| # | MÃ£ | Chá»©c nÄƒng | MÃ´ táº£ 1 cÃ¢u | Æ¯u tiÃªn | Tráº¡ng thÃ¡i | Spec |
 |---|----|-----------|-------------|---------|------------|------|
-| 1 | BIZ-001 | Rút gọn URL (Guest) | Dán link dài → nhận link ngắn 6 ký tự | P0 | Draft | SPEC-001 |
-| 2 | BIZ-002 | Redirect + Click log | Truy cập slug → redirect + ghi analytics | P0 | Draft | SPEC-002 |
-| 3 | BIZ-003 | Auth (Member) | Đăng ký/đăng nhập để quản lý link | P1 | Draft | SPEC-003 |
-| 4 | BIZ-004 | Dashboard “Link của tôi” | List, search, xóa link | P1 | Draft | SPEC-004 |
-| 5 | BIZ-005 | Thống kê click | Xem chart click theo ngày/device | P1 | Draft | SPEC-005 |
-| 6 | BIZ-006 | Custom slug & Expiry | User tự đặt slug, đặt hạn | P2 | Idea | — |
-| 7 | BIZ-007 | QR Code | Tạo QR cho link ngắn | P2 | Idea | — |
-| 8 | BIZ-008 | Team workspace | Chia sẻ link trong team | P2 | Idea | — |
+| 1 | BIZ-001 | RÃºt gá»n URL (Guest) | DÃ¡n link dÃ i â†’ nháº­n link ngáº¯n 6 kÃ½ tá»± | P0 | Draft | SPEC-001 |
+| 2 | BIZ-002 | Redirect + Click log | Truy cáº­p slug â†’ redirect + ghi analytics | P0 | Draft | SPEC-002 |
+| 3 | BIZ-003 | Auth (Member) | ÄÄƒng kÃ½/Ä‘Äƒng nháº­p Ä‘á»ƒ quáº£n lÃ½ link | P1 | Draft | SPEC-003 |
+| 4 | BIZ-004 | Dashboard â€œLink cá»§a tÃ´iâ€ | List, search, xÃ³a link | P1 | Draft | SPEC-004 |
+| 5 | BIZ-005 | Thá»‘ng kÃª click | Xem chart click theo ngÃ y/device | P1 | Draft | SPEC-005 |
+| 6 | BIZ-006 | Custom slug & Expiry | User tá»± Ä‘áº·t slug, Ä‘áº·t háº¡n | P2 | Idea | â€” |
+| 7 | BIZ-007 | QR Code | Táº¡o QR cho link ngáº¯n | P2 | Idea | â€” |
+| 8 | BIZ-008 | Team workspace | Chia sáº» link trong team | P2 | Idea | â€” |
 
-## Cách chia BIZ → TASK (ví dụ BIZ-001)
+## CÃ¡ch chia BIZ â†’ TASK (vÃ­ dá»¥ BIZ-001)
 
 ```
-BIZ-001: Rút gọn URL
-├── TASK-001: DB schema + migration (links table)
-├── TASK-002: POST /api/links — tạo slug + validate zod (logic, chưa UI)
-├── TASK-003: Rate limit + blacklist check
-└── TASK-004: UI form rút gọn (Pha 5 — sau khi logic xanh)
+BIZ-001: RÃºt gá»n URL
+â”œâ”€â”€ TASK-001: DB schema + migration (links table)
+â”œâ”€â”€ TASK-002: POST /api/links â€” táº¡o slug + validate zod (logic, chÆ°a UI)
+â”œâ”€â”€ TASK-003: Rate limit + blacklist check
+â””â”€â”€ TASK-004: UI form rÃºt gá»n (Pha 5 â€” sau khi logic xanh)
 ```
 
-Mỗi TASK ≤300 dòng, có test riêng, 1 PR riêng.
+Má»—i TASK â‰¤300 dÃ²ng, cÃ³ test riÃªng, 1 PR riÃªng.
 
-## Quy tắc cho team
+## Quy táº¯c cho team
 
-1. **Không làm P1 khi P0 chưa Done.** PM chịu trách nhiệm sắp xếp.
-2. **Mỗi BIZ phải có REVIEW trước khi sang BIZ mới.**
-3. **Ước lượng:** Mỗi TASK = 0.5–1 ngày. Nếu >1 ngày → tách tiếp.
-4. **Họp backlog 1 lần/tuần:** Cập nhật trạng thái, thêm/bớt scope có ADR.
+1. **KhÃ´ng lÃ m P1 khi P0 chÆ°a Done.** PM chá»‹u trÃ¡ch nhiá»‡m sáº¯p xáº¿p.
+2. **Má»—i BIZ pháº£i cÃ³ REVIEW trÆ°á»›c khi sang BIZ má»›i.**
+3. **Æ¯á»›c lÆ°á»£ng:** Má»—i TASK = 0.5â€“1 ngÃ y. Náº¿u >1 ngÃ y â†’ tÃ¡ch tiáº¿p.
+4. **Há»p backlog 1 láº§n/tuáº§n:** Cáº­p nháº­t tráº¡ng thÃ¡i, thÃªm/bá»›t scope cÃ³ ADR.
 
-## Template thêm BIZ mới
+## Template thÃªm BIZ má»›i
 
-Copy `docs/02_BUSINESS/_TEMPLATE.md` → `BIZ-00X_Ten.md` → điền → chạy `/lay-yeu-cau` để refine → thêm vào bảng trên.
+Copy `docs/02_BUSINESS/_TEMPLATE.md` â†’ `BIZ-00X_Ten.md` â†’ Ä‘iá»n â†’ cháº¡y `/lay-yeu-cau` Ä‘á»ƒ refine â†’ thÃªm vÃ o báº£ng trÃªn.
 
 ---
-*Teams: Dán bảng này lên Notion/Linear/Jira nếu cần, nhưng file này là nguồn chân lý.*
+*Teams: DÃ¡n báº£ng nÃ y lÃªn Notion/Linear/Jira náº¿u cáº§n, nhÆ°ng file nÃ y lÃ  nguá»“n chÃ¢n lÃ½.*
 

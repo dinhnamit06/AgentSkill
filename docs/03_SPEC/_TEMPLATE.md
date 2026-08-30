@@ -1,19 +1,19 @@
-# SPEC-XXX: [Tên chức năng] — Template (lay-yeu-cau phase)
+﻿# SPEC-XXX: [TÃªn chá»©c nÄƒng] â€” Template (lay-yeu-cau phase)
 
-> Copy thành `SPEC-001_Ten.md`. Điền sau khi BIZ đã Approved. Đây là “hợp đồng” giữa người và AI — AI chỉ code theo spec này.
-> Góc Mentor: Spec tốt = code ít bug, prompt ngắn, không phải đoán.
+> Copy thÃ nh `SPEC-001_Ten.md`. Äiá»n sau khi BIZ Ä‘Ã£ Approved. ÄÃ¢y lÃ  â€œhá»£p Ä‘á»“ngâ€ giá»¯a ngÆ°á»i vÃ  AI â€” AI chá»‰ code theo spec nÃ y.
+> GÃ³c Mentor: Spec tá»‘t = code Ã­t bug, prompt ngáº¯n, khÃ´ng pháº£i Ä‘oÃ¡n.
 
 ## 1. Meta
 
-- **Mã:** SPEC-XXX (map tới BIZ-XXX)
-- **Trạng thái:** Draft | Review | Approved
-- **Tác giả:** @dev + lay-yeu-cau skill
-- **Ngày duyệt:** YYYY-MM-DD (user ký duyệt mới được code)
+- **MÃ£:** SPEC-XXX (map tá»›i BIZ-XXX)
+- **Tráº¡ng thÃ¡i:** Draft | Review | Approved
+- **TÃ¡c giáº£:** @dev + lay-yeu-cau skill
+- **NgÃ y duyá»‡t:** YYYY-MM-DD (user kÃ½ duyá»‡t má»›i Ä‘Æ°á»£c code)
 
-## 2. Types (Type-driven — học từ Matt Pocock)
+## 2. Types (Type-driven â€” há»c tá»« Matt Pocock)
 
 ```typescript
-// Branded types giúp AI không nhầm lẫn
+// Branded types giÃºp AI khÃ´ng nháº§m láº«n
 type Slug = string & { readonly __brand: "Slug" };
 type Url = string & { readonly __brand: "Url" };
 
@@ -32,14 +32,14 @@ export interface Link {
   id: string;
   slug: Slug;
   originalUrl: Url;
-  ownerId: string | null; // null nếu Guest
+  ownerId: string | null; // null náº¿u Guest
   clicks: number;
   createdAt: Date;
   expiresAt: Date | null;
 }
 ```
 
-**Bài học:** Viết type trước code — compiler sẽ bắt lỗi thay bạn. Khi nào dùng `zod`? Mọi chỗ nhận input từ user/API.
+**BÃ i há»c:** Viáº¿t type trÆ°á»›c code â€” compiler sáº½ báº¯t lá»—i thay báº¡n. Khi nÃ o dÃ¹ng `zod`? Má»i chá»— nháº­n input tá»« user/API.
 
 ## 3. Database Schema (Prisma)
 
@@ -57,48 +57,48 @@ model Link {
 }
 ```
 
-**Khi nào cần migration?** Mỗi lần thay đổi model → `npx prisma migrate dev --name add_expires_at`.
+**Khi nÃ o cáº§n migration?** Má»—i láº§n thay Ä‘á»•i model â†’ `npx prisma migrate dev --name add_expires_at`.
 
 ## 4. API Contract (OpenAPI-lite)
 
-| Method | Endpoint | Input | Output | Auth | Ghi chú |
+| Method | Endpoint | Input | Output | Auth | Ghi chÃº |
 |--------|----------|-------|--------|------|---------|
-| POST | `/api/links` | `CreateLinkInput` | `201 {slug, shortUrl}` | Optional | Rate limit 10/phút nếu Guest |
-| GET | `/:slug` | — | `302 redirect` | No | Ghi click log |
-| GET | `/api/links` | `?q=&page=` | `200 {links[], total}` | Required | List của tôi |
-| DELETE | `/api/links/:id` | — | `204` | Required | Chỉ owner |
+| POST | `/api/links` | `CreateLinkInput` | `201 {slug, shortUrl}` | Optional | Rate limit 10/phÃºt náº¿u Guest |
+| GET | `/:slug` | â€” | `302 redirect` | No | Ghi click log |
+| GET | `/api/links` | `?q=&page=` | `200 {links[], total}` | Required | List cá»§a tÃ´i |
+| DELETE | `/api/links/:id` | â€” | `204` | Required | Chá»‰ owner |
 
-**Bài học — Khi nào dùng endpoint nào?**
+**BÃ i há»c â€” Khi nÃ o dÃ¹ng endpoint nÃ o?**
 
-* **POST** = tạo mới (không idempotent, mỗi lần tạo slug mới)
-* **GET** = đọc, không đổi DB (trừ analytics — vẫn là GET vì client chỉ đọc)
-* **DELETE** = xóa, idempotent (xóa 2 lần vẫn 204)
-* **PUT/PATCH** = cập nhật — dùng PATCH nếu chỉ đổi 1 phần (vd: đổi expiry)
+* **POST** = táº¡o má»›i (khÃ´ng idempotent, má»—i láº§n táº¡o slug má»›i)
+* **GET** = Ä‘á»c, khÃ´ng Ä‘á»•i DB (trá»« analytics â€” váº«n lÃ  GET vÃ¬ client chá»‰ Ä‘á»c)
+* **DELETE** = xÃ³a, idempotent (xÃ³a 2 láº§n váº«n 204)
+* **PUT/PATCH** = cáº­p nháº­t â€” dÃ¹ng PATCH náº¿u chá»‰ Ä‘á»•i 1 pháº§n (vd: Ä‘á»•i expiry)
 
-**Quy tắc cho AI:** Mọi endpoint phải có zod validate ở boundary, trả lỗi chuẩn `{error: string, code: string}`, không throw string.
+**Quy táº¯c cho AI:** Má»i endpoint pháº£i cÃ³ zod validate á»Ÿ boundary, tráº£ lá»—i chuáº©n `{error: string, code: string}`, khÃ´ng throw string.
 
 ## 5. Logic & State
 
 ```
-[Input URL] → validate → check blacklist → generate slug → check unique (retry 3) → save DB → return shortUrl
-                ↓ fail
+[Input URL] â†’ validate â†’ check blacklist â†’ generate slug â†’ check unique (retry 3) â†’ save DB â†’ return shortUrl
+                â†“ fail
               400 + message VN
 ```
 
-## 6. Edge Cases (từ BIZ)
+## 6. Edge Cases (tá»« BIZ)
 
-| Case | Spec xử lý |
+| Case | Spec xá»­ lÃ½ |
 |------|------------|
 | URL blacklist | 400 `DOMAIN_BLOCKED` |
-| Slug collision 3 lần | 500 `SLUG_GENERATION_FAILED` |
-| Expired link | GET /:slug → 410 Gone |
+| Slug collision 3 láº§n | 500 `SLUG_GENERATION_FAILED` |
+| Expired link | GET /:slug â†’ 410 Gone |
 
-## 7. Liên kết
+## 7. LiÃªn káº¿t
 
 - BIZ: `docs/02_BUSINESS/BIZ-XXX.md`
 - Prompt: `docs/04_PROMPTS/PROMPT-XXX.md`
 - Task: `docs/05_TASKS/TASK-XXX.md`
 
 ---
-<!-- EXAMPLE BeShort SPEC-001: Điền khối trên cho rút gọn URL. Sau khi user duyệt → chạy /tao-prompt -->
+<!-- EXAMPLE BeShort SPEC-001: Äiá»n khá»‘i trÃªn cho rÃºt gá»n URL. Sau khi user duyá»‡t â†’ cháº¡y /tao-prompt -->
 

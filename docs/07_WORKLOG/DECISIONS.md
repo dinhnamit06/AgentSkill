@@ -1,34 +1,34 @@
-# DECISIONS � Architecture Decision Records (ADR)
+# DECISIONS — Architecture Decision Records (ADR)
 
-> Ghi m?i quy?t d?nh �t?i sao ch?n X kh�ng ch?n Y�. Sau n�y ngu?i m?i d?c l� hi?u, kh�ng ph?i h?i l?i.
-> M?u: M?i ADR 10 d�ng, c� ng�y + ngu?i duy?t + trade-off.
+> Ghi mọi quyết định “tại sao chọn X không chọn Y”. Sau này người mới đọc là hiểu, không phải hỏi lại.
+> Mẫu: Mỗi ADR 10 dòng, có ngày + người duyệt + trade-off.
 
-## ADR-001: Ch?n stack TS + React + Node + Postgres cho BeShort
+## ADR-001: Chọn stack TS + React + Node + Postgres cho BeShort
 
-- **Ng�y:** 2026-08-22
-- **Tr?ng th�i:** Approved
-- **B?i c?nh:** C?n stack ph? bi?n d? AI gen t?t, team d? tuy?n, vibe code nhanh.
-- **Quy?t d?nh:** TS 5 + React 18 (Vite) + Tailwind 4 + Fastify + Postgres 16 + Prisma
-- **L� do:** Vite nhanh, Fastify schema validation, Prisma type-safe, Supabase Auth s?n
-- **Trade-off:** Kh�ng SSR (ch?p nh?n v� BeShort kh�ng c?n SEO n?ng), n?u sau c?n SEO ? th�m Next.js BFF
-- **Ngu?i duy?t:** @tech-lead
+- **Ngày:** 2026-08-22
+- **Trạng thái:** Approved
+- **Bối cảnh:** Cần stack phổ biến để AI gen tốt, team dễ tuyển, vibe code nhanh.
+- **Quyết định:** TS 5 + React 18 (Vite) + Tailwind 4 + Fastify + Postgres 16 + Prisma
+- **Lý do:** Vite nhanh, Fastify schema validation, Prisma type-safe, Supabase Auth sẵn
+- **Trade-off:** Không SSR (chấp nhận vì BeShort không cần SEO nặng), nếu sau cần SEO → thêm Next.js BFF
+- **Người duyệt:** @tech-lead
 
-## ADR-002: 1 TASK = 1 slice vertical (DB+API+test, chua UI)
+## ADR-002: 1 TASK = 1 slice vertical (DB+API+test, chưa UI)
 
-- **Ng�y:** 2026-08-22
-- **Tr?ng th�i:** Approved
-- **B?i c?nh:** Team hay g?p nhi?u vi?c 1 PR ? review l�u, kh� revert
-- **Quy?t d?nh:** M?i TASK =300 d�ng, 1 PR, 1 review 5-axis, 1 worklog
-- **L� do:** Incremental-implementation + tips #5 � d? test, d? demo, d? h?c
-- **Trade-off:** Nhi?u PR hon, nhung m?i PR review 15p thay v� 2h
+- **Ngày:** 2026-08-22
+- **Trạng thái:** Approved
+- **Bối cảnh:** Team hay gộp nhiều việc 1 PR → review lâu, khó revert
+- **Quyết định:** Mỗi TASK ≤300 dòng, 1 PR, 1 review 5-axis, 1 worklog
+- **Lý do:** Incremental-implementation + tips #5 — dễ test, dễ demo, dễ học
+- **Trade-off:** Nhiều PR hơn, nhưng mỗi PR review 15p thay vì 2h
 
-## ADR-003: Logic tru?c UI (Pha 5 sau c�ng)
+## ADR-003: Logic trước UI (Pha 5 sau cùng)
 
-- **Ng�y:** 2026-08-22
-- **Tr?ng th�i:** Approved
-- **Quy?t d?nh:** Kh�ng l�m UI khi logic chua 100% pass test
-- **L� do:** UI d?i nhi?u khi logic d?i � l�m UI s?m = l�m l?i
-- **Ngo?i l?:** C� th? l�m wireframe low-fi ? pha 2 d? l?y feedback UX, nhung kh�ng code UI.
+- **Ngày:** 2026-08-22
+- **Trạng thái:** Approved
+- **Quyết định:** Không làm UI khi logic chưa 100% pass test
+- **Lý do:** UI đổi nhiều khi logic đổi — làm UI sớm = làm lại
+- **Ngoại lệ:** Có thể làm wireframe low-fi ở pha 2 để lấy feedback UX, nhưng không code UI.
 
 ---
-*Th�m ADR m?i khi c� quy?t d?nh quan tr?ng. ��nh s? tang d?n.*
+*Thêm ADR mới khi có quyết định quan trọng. Đánh số tăng dần.*
