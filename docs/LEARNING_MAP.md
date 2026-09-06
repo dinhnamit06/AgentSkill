@@ -25,6 +25,7 @@ The agent must not only provide a finished solution. Prefer hints, then a skelet
 | Security | validation, hashing, auth, authorization, CORS, rate limit, secrets | Name one threat and its mitigation |
 | Delivery | environment, build, CI/CD, migration, health check, rollback | Write a deploy and rollback checklist |
 | Prompting | context, goal, scope, constraints, acceptance, verification | Write the next task prompt independently |
+| Independence | request tracing, hypothesis-driven debugging, scoped change planning, code review | Explain one flow, debug one failure, and implement one bounded change |
 
 ## Per-task teaching contract
 
@@ -37,3 +38,5 @@ For every completed task, provide:
 5. One retrieval question or tiny exercise.
 
 Every two or three tasks, let the user implement a small part without a full answer first. Review the attempt and correct misconceptions before continuing.
+
+For the full practice cadence, use `.opencode/skills/internship-coach/SKILL.md` and `docs/LEARNING_PROTOCOL.md`.

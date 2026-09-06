@@ -8,7 +8,7 @@ Skills encode the workflows, quality gates, and teaching loops that senior engin
 
 [![Kit](https://img.shields.io/badge/kit-v1.0-blue)](#)
 [![Stack](https://img.shields.io/badge/stack-TS%205%20%E2%80%A2%20React%2018%20%E2%80%A2%20Node%2022%20%E2%80%A2%20Postgres%2016-black)](#)
-[![Skills](https://img.shields.io/badge/skills-17-green)](#all-17-skills)
+[![Skills](https://img.shields.io/badge/skills-18-green)](#all-18-skills)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](#license)
 
 ```
@@ -17,7 +17,7 @@ Skills encode the workflows, quality gates, and teaching loops that senior engin
 │ Idea │────▶│ Spec │────▶│ Code │────▶│ Test │────▶│  QA  │────▶│  Go  │────▶│Understand│
 │Refine│     │  PRD │     │ Impl │     │Debug │     │ Gate │     │ Live │     │Retention │
 └──────┘     └──────┘     └──────┘     └──────┘     └──────┘     └──────┘     └──────┘
- /lay-yeu-cau  /tao-ke-hoach /tao-prompt  /tdd  /review  /ship   /hoc-tap
+ /lay-yeu-cau  /tao-ke-hoach /tao-prompt  /tdd  /review  /ship   /hoc-tap → /internship-coach
                               + tdd/security   + security  + ci-cd/deploy
 ```
 
@@ -33,7 +33,7 @@ No phase is skipped. See `docs/PHASE_GATES.md` for the full gate definition.
 
 ## Commands
 
-8 commands that map to the development lifecycle. You rarely need to type them — `using-vibe-coding` routes natural language automatically.
+9 commands that map to the development lifecycle. You rarely need to type them — `using-vibe-coding` routes natural language automatically.
 
 | What you're doing | Command | Key principle |
 | --- | --- | --- |
@@ -45,8 +45,9 @@ No phase is skipped. See `docs/PHASE_GATES.md` for the full gate definition.
 | Tests fail, build breaks, or UI is wrong | `debugging` | Reproduce → Localize → Reduce → Fix → Guard |
 | Ready to merge | `/review` | Five-axis review before merge |
 | Ready to release or ship | `/ship` | Verify, then ship with rollback awareness |
+| Practicing independent development | `/internship-coach` | Explain, debug, change, or write one bounded part yourself |
 
-Completed task/slice? `/hoc-tap` runs **automatically** at `ADAPTIVE` level — you don't need to ask. See `docs/15_HOC_VIBE.md`.
+Completed task/slice? `/hoc-tap` then `/internship-coach` run **automatically** at `ADAPTIVE` level — you don't need to ask. See `docs/15_HOC_VIBE.md` and `docs/LEARNING_PROTOCOL.md`.
 
 Skills also activate automatically: designing an API triggers `api` concerns, building UI triggers `frontend-react` and `browser-testing`, releasing triggers `ci-cd`/`deployment`/`observability`/`rollback`.
 
@@ -113,9 +114,9 @@ BeShort implements `src/features/links/` (create + redirect with Postgres + Pris
 
 ---
 
-## All 17 skills
+## All 18 skills
 
-The commands above are entry points. The pack includes 17 skills total — one coordinator plus 16 lifecycle skills. Each skill is a structured workflow with steps, verification gates, and anti-rationalization checks.
+The commands above are entry points. The pack includes 18 skills total — one coordinator plus 17 lifecycle skills. Each skill is a structured workflow with steps, verification gates, and anti-rationalization checks.
 
 ### Meta — Discover which skill applies
 
@@ -172,7 +173,8 @@ The commands above are entry points. The pack includes 17 skills total — one c
 
 | Skill | What it does | Use when |
 | --- | --- | --- |
-| `hoc-tap` | Explains 5 essentials: code + architecture + prompt + domain + security, with spaced repetition | After every verified slice (automatic) or when you ask why/how |
+| `hoc-tap` | Gives up to three relevant takeaways about code, architecture and testing/security; hands off one practice question | After every verified slice (automatic) or when you ask why/how |
+| `internship-coach` | Collects practice evidence for explaining, debugging, changing, and writing code independently | After every verified slice, during debugging, or when preparing for internship interviews |
 
 ---
 
@@ -207,7 +209,7 @@ Every skill follows a consistent anatomy:
 AgentSkill/
 ├── AGENTS.md                      # Always-loaded operating rules + auto-routing
 ├── opencode.json                  # OpenCode skills + MCP wiring
-├── .opencode/skills/              # 17 skills (1 meta + 16 lifecycle)
+├── .opencode/skills/              # 18 skills (1 meta + 17 lifecycle)
 │   ├── using-vibe-coding/         #   coordinator
 │   ├── lay-yeu-cau/               #   define
 │   ├── tao-ke-hoach/              #   plan
@@ -223,7 +225,8 @@ AgentSkill/
 │   ├── observability/             #   ship
 │   ├── rollback/                  #   ship
 │   ├── ship/                      #   ship
-│   └── hoc-tap/                   #   learn
+│   ├── hoc-tap/                   #   learn
+│   └── internship-coach/          #   independent practice
 ├── docs/
 │   ├── 00_WORKFLOW.md             # Lifecycle DRAFT→DONE
 │   ├── PHASE_GATES.md             # Mandatory state machine
@@ -275,7 +278,7 @@ Users never need to memorize slash commands — describe the outcome and the coo
 | `ENGINEER` | Known concepts | Move faster, keep quality gates |
 | `ADAPTIVE` | Default | Teach unfamiliar/risky concepts in depth; recall known concepts briefly via spaced repetition |
 
-Every verified slice automatically triggers `hoc-tap` at `ADAPTIVE` unless you switch modes. Your knowledge is tracked in `docs/KNOWLEDGE_TRACKING.md` (`new` → `learning` → `known` → `needs-review`).
+For internship learning, every verified slice triggers `hoc-tap` and a relevant `internship-coach` checkpoint at `ADAPTIVE`. Practice evidence and assistance levels are recorded in the task/worklog using `docs/KNOWLEDGE_TRACKING.md`; an unanswered exercise stays pending.
 
 ---
 

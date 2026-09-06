@@ -70,7 +70,8 @@ Use `using-vibe-coding` as the default coordinator. The user should describe the
 * Failed test, build, or unexpected behavior → use debugging and recovery reasoning before changing code
 * Change ready for merge → `/review`
 * Review passed and checks green → `/ship`
-* Completed task or user asks why → `/hoc-tap`
+* Completed task or user asks why → `/hoc-tap` → `/internship-coach`
+* User needs to prove independent understanding, debug, change a feature, or write a small part without AI → `/internship-coach`
 
 Always apply the relevant route automatically; do not wait for the user to name the skill.
 
@@ -139,7 +140,8 @@ export async function createLinkService(input: CreateLinkInput) {
 * `/tao-prompt` → bien task thanh prompt thi cong 6 khoi.
 * `/tdd`, `/security`, `/review`, `/ship` → verify lifecycle.
 * `/hoc-tap` → giai thich code, kien truc, prompt, nghiep vu, bao mat va trade-off.
-- Sau moi task/slice da verify thanh cong, bat buoc tu dong chay `hoc-tap` o muc `ADAPTIVE` (mac dinh de hieu); user co the doi sang co ban, trung cap hoac nang cao.
+* `/internship-coach` → tao bang chung tu giai thich, debug, thay doi feature, va viet mot phan code.
+- Sau moi task/slice da verify thanh cong, bat buoc tu dong chay `hoc-tap` roi `internship-coach` o muc `ADAPTIVE`; user co the doi sang co ban, trung cap hoac nang cao.
 * Luong: `Define → Plan → Build → Verify → Review → Ship → Learn`.
 
 ## 9. Goc nhin 3 vai + Hoc trong hoi thoai (moi cau tra loi phai co)

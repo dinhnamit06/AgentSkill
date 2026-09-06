@@ -1,7 +1,7 @@
 # Vibe Coding Kit — Cursor Rules (mirror AGENTS.md)
 # Cursor đọc file này tự động. Đồng bộ với AGENTS.md khi đổi.
 
-Tech Stack: Xem docs/_meta/PROJECT_CONTEXT.md + docs/01_TECH_STACK.md (TS+React+Fastify+Postgres+Dart)
+Tech Stack: Xem docs/_meta/PROJECT_CONTEXT.md + docs/01_TECH_STACK.md. Tôn trọng Stack mode: LOCKED.
 Workflow 5 pha bắt buộc: 00_WORKFLOW.md — 1 TASK = 1 slice = 1 PR, logic trước UI
 Context Loading (Selective Include <2000 dòng):
   1. Đọc docs/_meta/PROJECT_CONTEXT.md + SPEC liên quan (03_SPEC/SPEC-xxx.md)
@@ -9,4 +9,4 @@ Context Loading (Selective Include <2000 dòng):
   3. Nếu spec thiếu → dừng và hỏi, không tự bịa
 Conventions: header 3 Biết (ai viết + tại sao + link SPEC/ADR) — docs/14_CODE_READING_GUIDE.md:2, file ≤300 dòng, hàm ≤50 dòng, zod ở boundary, test colocated
 Boundaries: không tự đổi DB schema, không thêm dep khi chưa npm audit, không làm UI khi logic chưa xanh, không gộp refactor+feature, KHÔNG tự tiện lấy GitHub/API/thông tin cá nhân — phải hỏi consent trước (docs/18_PRIVACY_CONSENT.md:1)
-Skills: /mattpocock-requirements (BIZ→SPEC) → /prompt-master (SPEC→PROMPT 6 khối) — xem .opencode/skills/
+Skills: using-vibe-coding tự route: /lay-yeu-cau (BIZ→SPEC) → /tao-ke-hoach → /tao-prompt (PROMPT 6 khối). Sau slice đã verify: /hoc-tap → /internship-coach để luyện tự giải thích, debug, thay đổi, hoặc viết code — xem .opencode/skills/

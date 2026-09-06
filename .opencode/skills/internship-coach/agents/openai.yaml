@@ -1,0 +1,4 @@
+interface:
+  display_name: "Internship Coach"
+  short_description: "Build independent developer habits"
+  default_prompt: "Use $internship-coach to run a focused practice checkpoint for my current task."

@@ -106,12 +106,15 @@ SPEC-xxx (da Approved, da co DB)
 | 4 | Bao mat + review | `Review S1-S8` |
 | 5 | UI | `Tai sao UI de cuoi?` |
 
+Sau mỗi slice đã verify: `/hoc-tap` giải thích phần vừa làm, rồi `/internship-coach` yêu cầu một bằng chứng ngắn về tự giải thích, debug, thay đổi, hoặc viết code. Xem `docs/LEARNING_PROTOCOL.md`.
+
 ## Lennh nhanh cho AI
 
 ```
 /lay-yeu-cau  → Bat dau Pha 2
 /tao-prompt  → Sinh prompt tu spec da duyet (Pha 3)
 /hoc-tap     → Giai thich tinh hoa vua lam
+/internship-coach → Luyen giai thich, debug, thay doi, hoac viet code doc lap
 /review      → Chay review 5-axis (Pha 4)
 Hoi bat ky: "Giai thich line by line: ```[code]```" → 15_HOC_VIBE.md:A
 ```
