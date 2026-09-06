@@ -71,7 +71,7 @@ Use `using-vibe-coding` as the default coordinator. The user should describe the
 * Change ready for merge → `/review`
 * Review passed and checks green → `/ship`
 * Completed task or user asks why → `/hoc-tap` → `/internship-coach`
-* User needs to prove independent understanding, debug, change a feature, or write a small part without AI → `/internship-coach`
+* User needs to learn while coding, debug, change a feature, or write a small part with less help → `/internship-coach`
 
 Always apply the relevant route automatically; do not wait for the user to name the skill.
 
@@ -140,8 +140,8 @@ export async function createLinkService(input: CreateLinkInput) {
 * `/tao-prompt` → bien task thanh prompt thi cong 6 khoi.
 * `/tdd`, `/security`, `/review`, `/ship` → verify lifecycle.
 * `/hoc-tap` → giai thich code, kien truc, prompt, nghiep vu, bao mat va trade-off.
-* `/internship-coach` → tao bang chung tu giai thich, debug, thay doi feature, va viet mot phan code.
-- Sau moi task/slice da verify thanh cong, bat buoc tu dong chay `hoc-tap` roi `internship-coach` o muc `ADAPTIVE`; user co the doi sang co ban, trung cap hoac nang cao.
+* `/internship-coach` → vua code vua hoc, giam dan muc tro giup khi giai thich, debug, thay doi feature, va viet code.
+- Sau moi task/slice da verify thanh cong, bat buoc tu dong chay `hoc-tap` roi `internship-coach` o muc `ADAPTIVE`; day la vong lap hoc, khong phai bai thi; user co the doi sang co ban, trung cap hoac nang cao.
 * Luong: `Define → Plan → Build → Verify → Review → Ship → Learn`.
 
 ## 9. Goc nhin 3 vai + Hoc trong hoi thoai (moi cau tra loi phai co)

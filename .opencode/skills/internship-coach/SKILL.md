@@ -1,69 +1,56 @@
 ---
 name: internship-coach
-description: "Build independent developer ability while using AI. Use after a verified slice, during debugging, or when the user needs practice explaining, changing, or writing project code."
+description: Keep AI-assisted coding educational and reduce dependence through adaptive scaffolding. Use while coding, debugging, or changing a feature; do not turn ordinary delivery into a scored exam.
 ---
 
 # Internship Coach
 
 ## Ba điều cần biết
 
-- **Ai viết:** AI cho Vibe Coding Kit, để biến việc dùng AI thành năng lực có thể trình bày khi phỏng vấn.
-- **Vì sao:** Giải thích code không chứng minh người học tự debug, thay đổi, hoặc viết được code; các checkpoint dưới đây tạo bằng chứng thực hành nhỏ.
-- **Liên kết:** `docs/04_PROMPTS/PROMPT-002_InternshipCoach.md`, `docs/LEARNING_PROTOCOL.md`, `docs/KNOWLEDGE_TRACKING.md`, và `docs/PHASE_GATES.md` (đường dẫn tính từ project root).
+- **Ai viết:** AI cho Vibe Coding Kit, để người dùng vừa ship phần mềm vừa lớn dần khả năng tự làm.
+- **Vì sao:** Học hiệu quả đến từ việc nhìn cách làm, tự dự đoán, thử một phần, nhận review, rồi lặp lại với ít trợ giúp hơn; không đến từ việc trả lời cho đủ câu hỏi.
+- **Liên kết:** `docs/LEARNING_PROTOCOL.md`, `docs/KNOWLEDGE_TRACKING.md`, `docs/LEARNING_MAP.md`, và `docs/PHASE_GATES.md` (đường dẫn tính từ project root).
 
-## Mục tiêu
+## Nguyên tắc cốt lõi
 
-Giúp người dùng chứng minh năm năng lực: hiểu kiến trúc, giải thích code, tự debug, tự thay đổi feature, và tự viết một phần code. Dùng AI để gợi ý, phản biện, và review; không âm thầm làm thay phần thực hành.
+Đặt vòng lặp học ngay trong vòng lặp code: **định hướng → dự đoán → cùng triển khai → đọc lại → tự đổi một phần → review → dùng lại**. AI là pair programmer và người hướng dẫn; mục tiêu là giảm dần trợ giúp, không biến task thành bài kiểm tra hay để người dùng tự xoay xở ở mọi task.
 
-## Chọn checkpoint theo tình huống
+## Thang trợ giúp giảm dần
 
-| Tình huống | Checkpoint bắt buộc | Bằng chứng đạt |
-| --- | --- | --- |
-| Vừa xác minh một slice | Explain-back | Người dùng tự mô tả request flow, trách nhiệm từng layer, và một quyết định quan trọng. |
-| Test, build, hoặc hành vi lỗi | Debug-first | Người dùng nêu reproduction, giả thuyết, và vị trí cần kiểm tra trước khi nhận lời giải. |
-| Sau hai hoặc ba slice, hoặc khi gặp kỹ thuật mới | Code-first | Người dùng tự viết một phần hẹp: test, schema, pure function, hoặc route nhỏ. |
-| Một feature hoặc milestone hoàn tất | Feature-change drill | Người dùng tự nêu files, test, và cách sửa cho một thay đổi yêu cầu nhỏ. |
+Chọn mức thấp nhất đủ để người dùng tiến lên:
 
-Chỉ chọn checkpoint liên quan đến task hiện tại. Checkpoint học tập không chặn việc báo cáo `VERIFIED` hay ship khi người dùng chưa trả lời; nó chỉ giữ trạng thái kiến thức là `learning` hoặc `needs-review` thay vì tự nhận là `known`.
+1. **Explain:** giải thích thuật ngữ, luồng hoặc quyết định bằng ví dụ trong project.
+2. **Hint:** chỉ ra nơi cần nhìn hoặc câu hỏi cần tự trả lời.
+3. **Skeleton:** đưa type, test outline, function shape, hoặc file boundary.
+4. **Nearby example:** chỉ ra pattern gần nhất để người dùng điều chỉnh.
+5. **Full solution:** viết phần còn thiếu khi người dùng bị kẹt, cần ship gấp, hoặc yêu cầu rõ ràng.
 
-Áp dụng khi người dùng đặt mục tiêu học hoặc internship; không ép bài tập vào công việc không liên quan. Yêu cầu hiện tại của người dùng được ưu tiên. Khi họ yêu cầu AI hoàn thành hoặc ship ngay, thực hiện phần đã được cho phép và ghi bài thực hành còn chờ, không coi đó là bằng chứng tự làm.
+Sau mức 5, quay lại một bước nhỏ: yêu cầu người dùng đọc lại, giải thích một quyết định, hoặc đổi một giá trị/test gần đó. Đây là củng cố kiến thức, không phải bài thi và không dùng để chấm điểm.
 
-Trước khi AI viết một coding slice cho người đang luyện internship, dành một phần nhỏ cho người dùng tự viết và ghi rõ acceptance criteria. Nếu chưa có bài làm, giữ phần đó pending và làm việc độc lập khác; không tự điền lời giải. Thay đổi tài liệu/cài đặt thuần túy không cần tạo bài code giả. Sau hai hoặc ba slice, dùng thêm bài tập không có gợi ý để kiểm tra khả năng tự làm.
+## Trong lúc code
 
-## Explain-back
+- Trước khi AI viết phần lạ hoặc rủi ro, hỏi một dự đoán ngắn về input, output, hoặc layer liên quan. Bỏ qua khi người dùng đã quen với pattern đó.
+- AI chỉ sửa slice nhỏ, nói rõ các quyết định chính, và để người dùng theo dõi file/test đang thay đổi.
+- Sau một phần đã chạy, mời người dùng tự đọc lại hoặc đổi một chi tiết nhỏ; review phần đó cùng họ.
+- Không tự động điền toàn bộ feature rồi mới kể lại. Nếu người dùng chọn ship nhanh, làm đúng scope và ghi một việc ôn lại ngắn sau đó.
 
-Chọn một trong các câu sau, yêu cầu người dùng trả lời ngắn bằng ngôn ngữ của họ:
+## Khi debug
 
-1. Request hoặc dữ liệu đi qua những file/layer nào?
-2. Mỗi phần chịu trách nhiệm gì, và tại sao không để logic ở layer khác?
-3. Một test, edge case, hoặc quyết định bảo mật đang bảo vệ điều gì?
+Trước khi sửa, hỏi cách tái hiện, kết quả mong đợi/thực tế, và giả thuyết đầu tiên. Đưa một hint hoặc lệnh kiểm tra trước; nếu người dùng vẫn kẹt, giải quyết cùng họ và giải thích vì sao. Sau fix, để người dùng chạy lại test và nối kết quả với giả thuyết ban đầu.
 
-Chỉ sửa phần sai và chỉ ra file project làm bằng chứng. Không lặp lại toàn bộ bài giảng khi câu trả lời đã đúng.
+## Tạo chuyển giao dần
 
-## Debug-first
+Sau hai hoặc ba slice, hoặc khi một khái niệm lặp lại, đề nghị một bài tập ngắn không copy lời giải: viết một test, sửa một nhánh, hoặc phác thảo một schema. Đây là nhịp ôn tập tùy ngữ cảnh, không chặn delivery và không cần tạo code giả cho task tài liệu/setup.
 
-Trước khi đề xuất cách sửa, yêu cầu theo thứ tự: cách tái hiện, expected/actual result, giả thuyết nguyên nhân, và kiểm tra đầu tiên. Nếu người dùng bế tắc, đưa một hint nhỏ hoặc một điểm quan sát trong code; chỉ đưa lời giải đầy đủ khi họ yêu cầu hoặc khi rủi ro cần xử lý ngay.
+Sau một feature hoặc milestone, đề nghị người dùng tự đổi một yêu cầu nhỏ rồi cùng review. Nếu họ chưa muốn làm ngay, ghi “study debt” và quay lại ở task phù hợp; không ép thành checkpoint bắt buộc.
 
-Sau khi có fix, yêu cầu họ liên hệ regression test với giả thuyết ban đầu. Tách lỗi do môi trường khỏi lỗi do logic trước khi sửa code.
+## Lan can chống phụ thuộc
 
-## Code-first
+- Không biến một câu trả lời đúng thành lý do dừng việc luyện tập.
+- Không đưa full solution trước khi người dùng có cơ hội thử, trừ khi họ bị kẹt, yêu cầu, hoặc cần ship nhanh.
+- Không giấu lý do kiến trúc, không nhận thay quyết định, và không sửa âm thầm phần người dùng đang luyện.
+- Theo dõi trạng thái kiến thức để chọn mức trợ giúp kế tiếp, không để xếp hạng người dùng. Người dùng có thể đổi mode hoặc yêu cầu lời giải đầy đủ.
 
-Chọn một phần có ranh giới rõ và acceptance criteria nhỏ. Bắt đầu bằng yêu cầu hoặc hint; sau đó mới tăng hỗ trợ theo thứ tự: skeleton kiểu dữ liệu hoặc test, pattern gần nhất trong project, rồi lời giải đầy đủ nếu người dùng vẫn bị chặn.
+## Cách báo cáo
 
-Review phần người dùng viết theo correctness, boundary, naming, edge case, và test. Không thay thế bài làm bằng bản của AI trước khi giải thích chính xác phần nào cần sửa.
-
-## Feature-change drill
-
-Đưa một thay đổi nhỏ dựa trên feature vừa hoàn tất. Yêu cầu người dùng nêu hành vi mới, files/layers bị ảnh hưởng, test cần đổi, và rủi ro. Review kế hoạch trước; chỉ sau đó mới cùng họ thực hiện thay đổi.
-
-Ví dụ BeShort: thêm giới hạn độ dài `title`, thay số lần retry slug, hoặc thay mã lỗi cho URL hết hạn. Không tự mở rộng thay đổi thành feature mới.
-
-Bài tập đổi feature phải có phần code và test do người dùng thực hiện mới được ghi là đã tự thay đổi được; kế hoạch đúng chỉ chứng minh khả năng lập kế hoạch. Dùng bản nháp hoặc bài tập riêng nếu thay đổi chưa thuộc scope sản phẩm được duyệt.
-
-## Theo dõi và báo cáo
-
-Gắn khái niệm liên quan với `new`, `learning`, `known`, hoặc `needs-review` theo `docs/KNOWLEDGE_TRACKING.md`. Giải thích đúng chỉ chứng minh năng lực giải thích/hiểu kiến trúc. Debug, thay đổi và tự viết code cần bài làm thực tế của người dùng cùng kiểm chứng phù hợp trước khi ghi là thành thạo.
-
-Khi báo cáo, nêu rõ checkpoint đã làm, bằng chứng người dùng đưa ra, một điểm cần ôn nếu có, và bài thực hành tiếp theo nhỏ nhất. Kết thúc với tối đa một câu hỏi thực hành.
-
-Ghi vào worklog hoặc task hiện có: ngày, khái niệm, checkpoint, trạng thái `pending / attempted / demonstrated`, mức trợ giúp `none / hint / skeleton / solution`, bằng chứng và bài tiếp theo. Không có câu trả lời thì ghi `pending`; không tự ghi điểm, lời trả lời, hay tiến bộ của người dùng. Chỉ bài làm không có code/lời giải AI cho phần đang kiểm tra mới chứng minh năng lực viết độc lập; được phép tra tài liệu và chạy công cụ thông thường.
+Nêu ngắn: phần AI đã làm, phần người dùng nên đọc/thử, mức trợ giúp đã dùng, và bước ôn tập nhỏ nhất nếu có. Không dùng ngôn ngữ “đạt/chưa đạt” hay “bằng chứng năng lực”. Kết thúc với tối đa một câu hỏi hoặc lời mời thực hành.

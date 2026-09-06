@@ -174,7 +174,7 @@ The commands above are entry points. The pack includes 18 skills total — one c
 | Skill | What it does | Use when |
 | --- | --- | --- |
 | `hoc-tap` | Gives up to three relevant takeaways about code, architecture and testing/security; hands off one practice question | After every verified slice (automatic) or when you ask why/how |
-| `internship-coach` | Collects practice evidence for explaining, debugging, changing, and writing code independently | After every verified slice, during debugging, or when preparing for internship interviews |
+| `internship-coach` | Keeps coding educational with adaptive help that fades toward independent work | During coding, debugging, feature changes, or internship practice |
 
 ---
 
@@ -278,7 +278,7 @@ Users never need to memorize slash commands — describe the outcome and the coo
 | `ENGINEER` | Known concepts | Move faster, keep quality gates |
 | `ADAPTIVE` | Default | Teach unfamiliar/risky concepts in depth; recall known concepts briefly via spaced repetition |
 
-For internship learning, every verified slice triggers `hoc-tap` and a relevant `internship-coach` checkpoint at `ADAPTIVE`. Practice evidence and assistance levels are recorded in the task/worklog using `docs/KNOWLEDGE_TRACKING.md`; an unanswered exercise stays pending.
+For internship learning, every verified slice triggers `hoc-tap` and a relevant `internship-coach` teaching moment at `ADAPTIVE`. The loop uses explanations, hints, skeletons, examples, and full solutions only when needed, then reduces help on later nearby work. Use `docs/KNOWLEDGE_TRACKING.md` to track what needs more practice; an optional exercise never blocks delivery.
 
 ---
 

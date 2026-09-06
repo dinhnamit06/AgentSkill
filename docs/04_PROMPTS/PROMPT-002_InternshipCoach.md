@@ -1,6 +1,6 @@
 # PROMPT-002 — Thực hành độc lập khi dùng AI
 
-> Author: AI (Codex). WHY: liên kết skill với yêu cầu internship và bằng chứng thực hành. Scope: một slice nâng cấp bộ skill, không đổi ứng dụng.
+> Author: AI (Codex). WHY: liên kết skill với yêu cầu internship và vòng lặp thực hành. Scope: một slice nâng cấp bộ skill, không đổi ứng dụng.
 
 ## 1. Context
 
@@ -8,7 +8,7 @@ Người dùng cần hiểu kiến trúc, giải thích code AI, tự debug, t�
 
 ## 2. Yêu cầu
 
-Thêm internship-coach với explain-back, debug-first, code-first và feature-change drill. Gắn vào coordinator và hoc-tap để dành phần thực hành cho người dùng, theo dõi trợ giúp và không tự nhận người dùng đã thành thạo.
+Thêm internship-coach với explain-back, debug-first, code-first và feature-change drill. Gắn vào coordinator và hoc-tap để người dùng vừa code vừa học, điều chỉnh mức trợ giúp và giảm dần sự phụ thuộc vào AI.
 
 ## 3. Scope
 
@@ -19,11 +19,11 @@ Skills trong `.opencode/skills/`, các quy tắc và tài liệu learning liên 
 - Người dùng trả lời “OK”: bài tập còn pending, không đánh dấu đã biết.
 - Người dùng đang tự viết: đưa hint nếu cần, không điền phần dành cho họ.
 - Yêu cầu ship ngay: ship phần đã được ủy quyền, ghi việc thực hành còn chờ.
-- Kế hoạch đổi feature đúng: chỉ xác nhận kế hoạch; cần code và test mới chứng minh tự sửa được.
+- Kế hoạch đổi feature đúng: review kế hoạch, rồi để người dùng chọn thực hiện ngay hoặc ghi một việc ôn lại.
 
 ## 5. Ràng buộc
 
-UTF-8; header 3 Biết; ≤300 dòng/file, ≤50 dòng/hàm nếu tạo code; tên rõ, DRY/YAGNI, tách trách nhiệm. Mỗi lần chỉ một câu hỏi học tập. Không bịa bằng chứng hay tuyên bố đã pass kiểm tra chưa chạy.
+UTF-8; header 3 Biết; ≤300 dòng/file, ≤50 dòng/hàm nếu tạo code; tên rõ, DRY/YAGNI, tách trách nhiệm. Mỗi lần chỉ một câu hỏi học tập. Không bịa mức tiến bộ hay tuyên bố đã pass kiểm tra chưa chạy.
 
 ## 6. Verify và giao hàng
 

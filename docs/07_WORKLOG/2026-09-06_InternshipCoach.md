@@ -22,9 +22,9 @@
 
 ## Học và thực hành
 
-- Khái niệm: skill hướng dẫn hành vi AI; bằng chứng người học cần đến từ câu trả lời/code/test thật.
-- Phân vai: hoc-tap giải thích ngắn; internship-coach dành phần tự làm và kiểm tra mức trợ giúp.
-- Checkpoint: pending; chưa có bài làm để đánh giá năng lực của người dùng. Yêu cầu hiện tại là hoàn chỉnh và ship bộ skill.
+- Khái niệm: skill hướng dẫn hành vi AI; mục tiêu là người dùng vừa code vừa học, với mức trợ giúp giảm dần.
+- Phân vai: hoc-tap giải thích ngắn; internship-coach chọn hint/skeleton/example/solution và bài ôn phù hợp.
+- Teaching moment: không chấm điểm hay yêu cầu chứng minh ở mọi task; bài luyện nhỏ có thể để lại cho lần sau.
 - Bài tiếp theo: tự lần theo luồng một request của BeShort và giải thích vì sao validation nằm ở boundary.
 
 ## Giữ nguyên thay đổi của người dùng

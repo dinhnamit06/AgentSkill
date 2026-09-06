@@ -25,7 +25,7 @@ The agent must not only provide a finished solution. Prefer hints, then a skelet
 | Security | validation, hashing, auth, authorization, CORS, rate limit, secrets | Name one threat and its mitigation |
 | Delivery | environment, build, CI/CD, migration, health check, rollback | Write a deploy and rollback checklist |
 | Prompting | context, goal, scope, constraints, acceptance, verification | Write the next task prompt independently |
-| Independence | request tracing, hypothesis-driven debugging, scoped change planning, code review | Explain one flow, debug one failure, and implement one bounded change |
+| Learning transfer | request tracing, hypothesis-driven debugging, scoped change planning, code review | Move from explanation to hint to a small user attempt, then reuse the idea later |
 
 ## Per-task teaching contract
 

@@ -21,9 +21,9 @@ Include prompt or business decisions inside those takeaways only when relevant. 
 
 ## Hand off to practice
 
-For an internship/learning goal, use `internship-coach` for one relevant question or exercise. Coordinate the two skills so the user receives at most one practice question in the response, not one from each skill.
+For an internship/learning goal, hand off to `internship-coach` for one relevant practice moment. Coordinate the two skills so the user gets help while coding and at most one optional exercise in the response, not one question from each skill.
 
-Do not infer independent coding ability from correct answers about code. Record explanations as explanation evidence; record debugging, feature changes and independent coding only from the user's attempt and appropriate verification. Unanswered practice stays pending.
+Do not treat correct answers about code as the goal. Use what the user explains or tries to choose the next level of help, then reduce assistance on a later nearby task. Unanswered practice can remain a small follow-up item without blocking delivery.
 
 Keep an explicit request to finish/ship moving within its authorization. Give the recap and leave pending practice recorded without inventing knowledge gains.
 

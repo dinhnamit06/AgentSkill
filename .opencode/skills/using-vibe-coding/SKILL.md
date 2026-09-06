@@ -17,7 +17,7 @@ Act as the workflow coordinator. The user describes the outcome in natural langu
 6. Execute only the active task, then verify before expanding scope.
 7. After every meaningful step, recommend the next step, explain why it is next, and offer at most three concrete choices when trade-offs exist.
 8. Pause for user approval at product, architecture, scope, data, destructive, external-access, or release decisions. Never silently choose for the user.
-9. End every verified task/slice with `hoc-tap`, then use the relevant `internship-coach` checkpoint automatically. Ask for evidence of independent understanding or practice for `new`, `learning`, or `needs-review` concepts; briefly revisit `known` concepts using spaced repetition.
+9. End every verified task/slice with `hoc-tap`, then use the relevant `internship-coach` teaching moment automatically. Adjust the next level of help for `new`, `learning`, or `needs-review` concepts; briefly revisit `known` concepts using spaced repetition.
 
 ## Routing table
 
@@ -31,7 +31,7 @@ Act as the workflow coordinator. The user describes the outcome in natural langu
 | Test/build failure or unexpected behavior | Diagnose, reproduce, localize, reduce, fix, and add a regression test |
 | Change ready to merge | `review` |
 | Review and verification passed | `ship` |
-| User asks why/how or any task/slice is verified complete | `hoc-tap` → `internship-coach` (automatic) |
+| User asks why/how or any task/slice is verified complete | `hoc-tap` → `internship-coach` (automatic teaching loop) |
 | User needs to explain, debug, change, or write code independently | `internship-coach` |
 
 Use `prompt-coaching` whenever an implementation prompt is created, and `debugging` whenever behavior is failing or unclear.
@@ -45,7 +45,7 @@ Before acting, state the current phase. After acting, attach evidence to the gat
 
 ## Teaching contract
 
-Keep implementation momentum while teaching. `hoc-tap` explains the completed work; `internship-coach` validates a small piece of independent ability. Use the project's own code as the example, ask at most one short question after completion, and never mark knowledge `known` without an explanation or practice attempt from the user.
+Keep implementation momentum while teaching. `hoc-tap` explains the completed work; `internship-coach` chooses a small practice moment and fades assistance over time. Use the project's own code as the example, ask at most one short question after completion, and never turn the workflow into a scorecard.
 
 ## User decision contract
 
